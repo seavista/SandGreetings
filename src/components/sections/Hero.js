@@ -68,7 +68,7 @@ const Hero = ({
               <p className="m-0 mb-32 reveal-from-bottom" data-reveal-delay="400">
            
                 <input className='' type="text" id="greeting" placeholder="Enter your greeting" />
-                <input className='' type="file" id="pic" name="pic" title="Select" />
+                {/* <input  type="file" id="pic" name="pic" title="Select" className="" /> */}
                 </p>
                 </div>
                 </form>
@@ -80,7 +80,7 @@ const Hero = ({
               
              <div className="reveal-from-bottom" data-reveal-delay="600">
                <ButtonGroup>
-                 <input tag="a" color="primary" type="submit" title='Create Now' />
+                 <Button tag="a" color="primary">Create Now</Button>
                 
                  
                </ButtonGroup>

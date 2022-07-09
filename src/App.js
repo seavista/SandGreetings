@@ -39,9 +39,7 @@ const App = () => {
     <ScrollReveal
       ref={childRef}
       children={() => (
-        <Routes>
-          <Route path="/" element={<LayoutDefault><Home /></LayoutDefault>} />
-        </Routes>
+        <LayoutDefault><Home /></LayoutDefault>
       
       )} />
 
