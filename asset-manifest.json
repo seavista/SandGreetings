@@ -1,16 +1,27 @@
 {
   "files": {
-    "main.css": "/sandgreetings/static/css/main.073c9b0a.css",
-    "main.js": "/sandgreetings/static/js/main.316a82e9.js",
-    "static/js/787.b0ed42ee.chunk.js": "/sandgreetings/static/js/787.b0ed42ee.chunk.js",
-    "static/media/logo.svg": "/sandgreetings/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "main.css": "/sandgreetings/static/css/main.5e8e2e76.css",
+    "main.js": "/sandgreetings/static/js/main.b87827ae.js",
+    "static/media/YourMessage.jpg": "/sandgreetings/static/media/YourMessage.1a06d76ce69b7a3e953e.jpg",
+    "static/media/Accesories.png": "/sandgreetings/static/media/Accesories.8e583b48735fd25dd469.png",
+    "static/media/card.png": "/sandgreetings/static/media/card.fd5d11349308fa6f7187.png",
+    "static/media/framed.png": "/sandgreetings/static/media/framed.02f392f8a34f06e1560b.png",
+    "static/media/illustration-section-01.svg": "/sandgreetings/static/media/illustration-section-01.980998916c8e9369ffab.svg",
+    "static/media/logo.png": "/sandgreetings/static/media/logo.1e3c3bfb0b3fa5d907f9.png",
+    "static/media/illustration-section-02.svg": "/sandgreetings/static/media/illustration-section-02.f11c21a9745d2454b81c.svg",
+    "static/media/cta-illustration.svg": "/sandgreetings/static/media/cta-illustration.79633e4594ec76a3f01f.svg",
     "index.html": "/sandgreetings/index.html",
-    "main.073c9b0a.css.map": "/sandgreetings/static/css/main.073c9b0a.css.map",
-    "main.316a82e9.js.map": "/sandgreetings/static/js/main.316a82e9.js.map",
-    "787.b0ed42ee.chunk.js.map": "/sandgreetings/static/js/787.b0ed42ee.chunk.js.map"
+    "static/media/feature-tile-icon-06.svg": "/sandgreetings/static/media/feature-tile-icon-06.74b0477e38710535bd0e2526d669b6f8.svg",
+    "static/media/feature-tile-icon-05.svg": "/sandgreetings/static/media/feature-tile-icon-05.af2bae113bcfafa4eceac9401c7f3a5a.svg",
+    "static/media/feature-tile-icon-04.svg": "/sandgreetings/static/media/feature-tile-icon-04.1acd4dacd4ddf306c2e7f5da116b6137.svg",
+    "static/media/feature-tile-icon-03.svg": "/sandgreetings/static/media/feature-tile-icon-03.69e94e20efba0832770920ab1d93d073.svg",
+    "static/media/feature-tile-icon-01.svg": "/sandgreetings/static/media/feature-tile-icon-01.e13cef8e30c0472fc8b303cc0801113f.svg",
+    "static/media/feature-tile-icon-02.svg": "/sandgreetings/static/media/feature-tile-icon-02.469356592c7ce3b1abf53cca85e82fee.svg",
+    "main.5e8e2e76.css.map": "/sandgreetings/static/css/main.5e8e2e76.css.map",
+    "main.b87827ae.js.map": "/sandgreetings/static/js/main.b87827ae.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.316a82e9.js"
+    "static/css/main.5e8e2e76.css",
+    "static/js/main.b87827ae.js"
   ]
 }
