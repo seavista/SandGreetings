@@ -61,7 +61,7 @@ const Hero = ({
         <div className={innerClasses}>
           <div className="hero-content">
             <h1 className="mt-0 mb-16 reveal-from-bottom" data-reveal-delay="200">
-              Say it in <span className="text-invertColor">Sand</span>
+              Say it in <span className="text-invertColor">Sand!</span>
             </h1>
             <form method="post" action="https://crystalcoastcoffee.com/uploads/save.php" encType="multipart/form-data">
               <div className="">
