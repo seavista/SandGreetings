@@ -11,3 +11,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+form{
+  display:flex;
+  flex-direction:row;
+}
+
+input {
+  /* Tell the input to use all the available space */
+  flex-grow:2;
+  /* And hide the input's outline, so the form looks like the outline */
+  border:none;
+
+
+}
+
+.button{
+  padding:16px;
+}

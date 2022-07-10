@@ -6,6 +6,10 @@ import Button from '../elements/Button';
 import Image from '../elements/Image';
 import Modal from '../elements/Modal';
 
+
+
+import Checkout from "./../Checkout";
+
 const propTypes = {
   ...SectionProps.types
 }
@@ -26,6 +30,7 @@ const Hero = ({
 }) => {
 
   const [videoModalActive, setVideomodalactive] = useState(false);
+  const [greetingText, setGreetingText] = useState("");
 
   const openModal = (e) => {
     e.preventDefault();
@@ -52,6 +57,11 @@ const Hero = ({
     bottomDivider && 'has-bottom-divider'
   );
 
+  const onChangeHandler = event => {
+    setGreetingText(event.target.value);
+ };
+
+
   return (
     <section
       {...props}
@@ -63,31 +73,14 @@ const Hero = ({
             <h1 className="mt-0 mb-16 reveal-from-bottom" data-reveal-delay="200">
               Say it in <span className="text-invertColor">Sand!</span>
             </h1>
-            <form method="post" action="https://crystalcoastcoffee.com/uploads/save.php" encType="multipart/form-data">
-              <div className="">
-              <p className="m-0 mb-32 reveal-from-bottom" data-reveal-delay="400">
+
            
-                <input className='' type="text" id="greeting" placeholder="Enter your greeting" />
-                {/* <input  type="file" id="pic" name="pic" title="Select" className="" /> */}
-                </p>
-                </div>
-                </form>
-             
 
-                <div className="container-xs">
-             
+            <form>
+                <input className='greeting' type="text" id="greeting" placeholder="Enter your greeting" value={greetingText} onChange={onChangeHandler} />
+                   <Checkout greeting={greetingText} />
+             </form>
 
-              
-             <div className="reveal-from-bottom" data-reveal-delay="600">
-               <ButtonGroup>
-                 <Button tag="a" color="primary">Create Now</Button>
-                
-                 
-               </ButtonGroup>
-             </div>
-             
-           </div>
-    
           </div>
           <div className="hero-figure reveal-from-bottom illustration-element-01" data-reveal-value="20px" data-reveal-delay="800">
             <a
