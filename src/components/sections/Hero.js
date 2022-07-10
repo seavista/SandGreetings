@@ -8,7 +8,7 @@ import Modal from '../elements/Modal';
 
 
 
-import Checkout from "./../Checkout";
+import Checkout from "./Checkout";
 
 const propTypes = {
   ...SectionProps.types
@@ -73,15 +73,15 @@ const Hero = ({
             <h1 className="mt-0 mb-16 reveal-from-bottom" data-reveal-delay="200">
               Say it in <span className="text-invertColor">Sand!</span>
             </h1>
-
-           
-
-            <form>
-                <input className='greeting' type="text" id="greeting" placeholder="Enter your greeting" value={greetingText} onChange={onChangeHandler} />
-                   <Checkout greeting={greetingText} />
-             </form>
-
           </div>
+
+          <p className="hero-input"> 
+          <form>
+            <input className='greeting' type="text" id="greeting" placeholder="Enter your greeting" onChange={onChangeHandler} />
+                <Checkout greeting={greetingText} />
+          </form>
+          </p>
+
           <div className="hero-figure reveal-from-bottom illustration-element-01" data-reveal-value="20px" data-reveal-delay="800">
             <a
               data-video="https://youtu.be/4PcUcQ9xGy8"
@@ -89,13 +89,17 @@ const Hero = ({
               aria-controls="video-modal"
               onClick={openModal}
             >
-              <Image
+              <img
+                id="video-image"
                 className="has-shadow"
                 src={require('./../../assets/images/YourMessage.jpg')}
-                alt="Hero"
+                alt="You message requires a custom sand greeting to be created."
                 width={896}
                 height={504} />
             </a>
+
+        
+             
           </div>
           <Modal
             id="video-modal"

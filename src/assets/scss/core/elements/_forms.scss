@@ -7,9 +7,10 @@
 	flex-direction:row;
 }
 
-#greeting .form-input{
+#greeting input{
 	  /* ell the input to use all the available space */
 	  flex-grow:2;
+	 
 }
 
 
