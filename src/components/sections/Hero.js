@@ -77,7 +77,7 @@ const Hero = ({
           </div>
 
           <p className="hero-input"> 
-          <form onSubmit={e => { e.preventDefault(); }}>
+          <form onSubmit={e => { e.preventDefault(); return false; }}>
             <input className='greeting' type="text" id="greeting" placeholder="Enter your greeting" value={greetingText}  onChange={onChangeHandler} />
                 <Checkout greeting={greetingText} />
           </form>
