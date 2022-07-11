@@ -17,12 +17,12 @@ form{
   flex-direction:row;
 }
 
-input {
+.hero-input {
   /* Tell the input to use all the available space */
   flex-grow:2;
   /* And hide the input's outline, so the form looks like the outline */
   border:none;
-
+margin:30px;
 
 }
 

@@ -6,42 +6,45 @@ import CardIcon from "./../../assets/images/feature-tile-icon-01.svg";
 import ButtonGroup from '../elements/ButtonGroup';
 import Button from '../elements/Button';
 
-
-
-function checkImageURL(URL) {
-//dont change default image
-URL = URL.trim();
-URL = URL.replaceAll(' ', '-');
-URL = URL.replaceAll('/', '');
-
-console.log(URL);
-if (URL === "") {
-  URL = 'your-message';
+function cleanInput(input) {
+  input = input.trim();
+  input = input.replaceAll(' ', '-');
+  input = input.replaceAll('/', '');
+  return input;
 }
 
+function checkImageURL(URL) {
+
+  URL=cleanInput(URL);
+  console.log(URL);
+
+  if (URL === "") {
+    URL = 'your-message';
+  }
+
   URL = process.env.PUBLIC_URL + `/greetings/${URL}.jpg`;
- // URL = `/greetings/${URL}.jpg`;
+  // URL = `/greetings/${URL}.jpg`;
 
- fetch(URL)
- .then((res) => {
-   console.log(res);
-   if (res.status == 404) {
-    
-     console.log("Image not found at " + URL); 
-     return false;
-   } else {
-    
-     console.log(URL); 
-     //{require('./../../assets/images/YourMessage.jpg')}
+  fetch(URL)
+  .then((res) => {
+    console.log(res);
+    if (res.status == 404) {
+      
+      console.log("Image not found at " + URL); 
+      return false;
+    } else {
+      
+      console.log(URL); 
+      //{require('./../../assets/images/YourMessage.jpg')}
 
-     document.getElementById("video-image").src = URL;
-   }
- })
- .catch((err) => {
+      document.getElementById("video-image").src = URL;
+    }
+  })
+  .catch((err) => {
 
-   console.log("Image not found at " + URL); 
-   return false;
- });
+    console.log("Image not found at " + URL); 
+    return false;
+  });
 
 }
 
@@ -63,17 +66,36 @@ const Checkout = (props) => {
   const [isLoading, setLoading] = useState(false);
   const item = {
     price: "price_1LJl4OAeKJvEg73wno03jGUY",
-    quantity: 1
+    quantity: 1,
+
   };
 
   const checkoutOptions = {
     lineItems: [item],
     mode: "payment",
-    successUrl: `${window.location.origin}/success`,
+    successUrl: `${window.location.origin}/success?SessionId={CHECKOUT_SESSION_ID}`,
     cancelUrl: `${window.location.origin}/cancel`,
-    
+    // lineItems: [
+    //   {
+    //     // price: process.env.PRICE,
+    //     price: {
+    //       currency: item.currency,
+    //       unit_amount: item.price,
+    //       product_data: {
+    //         name: item.name,
+    //         images: [
+    //           'https://picsum.photos/280/320?random=4',
+    //           'https://picsum.photos/280/320?random=2',
+    //         ],
+    //       },
+    //     },
+    //     quantity: item.quantity,
+    //     //description: item.description,
+    //   },
+    // ]
   };
 
+ 
   const redirectToCheckout = async () => {
     setLoading(true);
     console.log("redirectToCheckout");
@@ -83,10 +105,20 @@ const Checkout = (props) => {
     
     //! Attach the metadata
     stripe.metadata = { "order_id": Date.now().toString(), "greeting": props.greeting };
+    
+    //add correct image
+    //PROD stripe.image = window.location.origin + `/greetings/${cleanInput(props.greeting)}.jpg`;
+    stripe.image = `https://seavista.github.io/sandgreetings/greetings/${cleanInput(props.greeting)}.jpg`;
+
+    console.log(stripe.image);
+   // https://seavista.github.io/
+
+   
+
+   debugger; //! Debugger
 
 
-    console.log(stripe.metadata);
-    debugger; // execution will pause at this line
+   
 
     const { error } = await stripe.redirectToCheckout(checkoutOptions);
     console.log("Stripe checkout error", error);

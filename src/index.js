@@ -11,6 +11,8 @@ import './assets/scss/style.scss';
 
 // Layouts
 import LayoutDefault from './layouts/LayoutDefault';
+import AppCancel from './AppCancel';
+import AppSuccess from './AppSuccess';
 
 const history = createBrowserHistory();
 
@@ -19,9 +21,14 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 
 root.render( 
-  <BrowserRouter >
+  <BrowserRouter history={history} >
     <Routes>
       <Route path="*" element={<App/>}  />
+      <Route path="cancel" element={<AppCancel/>}  />
+      <Route path="success" element={<AppSuccess/>}  />
+      
+      
+
     </Routes>
   </BrowserRouter>
 );

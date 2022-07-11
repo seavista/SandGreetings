@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useSearchParams } from 'react';
 import classNames from 'classnames';
 import { SectionProps } from '../../utils/SectionProps';
 import ButtonGroup from '../elements/ButtonGroup';
@@ -18,7 +18,7 @@ const defaultProps = {
   ...SectionProps.defaults
 }
 
-const Hero = ({
+const HeroCancel = ({
   className,
   topOuterDivider,
   bottomOuterDivider,
@@ -62,6 +62,16 @@ const Hero = ({
  };
 
  const [isLoading, setLoading] = useState(false);
+
+  let search = window.location.search;
+  let params = new URLSearchParams(search);
+  let greeting = greetingText;
+
+  if(params.get('greeting') !== null) {
+    greeting = params.get('greeting');
+  }
+
+ 
  
   return (
     <section
@@ -72,24 +82,19 @@ const Hero = ({
         <div className={innerClasses}>
           <div className="hero-content">
             <h1 className="mt-0 mb-16 reveal-from-bottom" data-reveal-delay="200">
-              Say it in <span className="text-invertColor">Sand!</span>
+              Don't lose your <span className="text-invertColor">Sand Greeting</span>
             </h1>
           </div>
 
           <div className="hero-input"> 
           <form onSubmit={e => { e.preventDefault(); return false; }}>
-            <input className='greeting' type="text" id="greeting" placeholder="Enter your greeting" value={greetingText}  onChange={onChangeHandler} />
-                <Checkout greeting={greetingText} />
+            <input className='greeting' type="text" id="greeting" placeholder="Enter your greeting" value={greeting}  onChange={onChangeHandler} />
+                <Checkout greeting={greeting} />
           </form>
           </div>
 
           <div className="hero-figure reveal-from-bottom illustration-element-01" data-reveal-value="20px" data-reveal-delay="800">
-            <a
-              data-video="https://youtu.be/4PcUcQ9xGy8"
-              href="#0"
-              aria-controls="video-modal"
-              onClick={openModal}
-            >
+          
               <img
                 id="video-image"
                 className="has-shadow"
@@ -98,24 +103,19 @@ const Hero = ({
                 disabled={isLoading}
                 width={896}
                 height={504} />
-            </a>
+           
 
         
              
           </div>
-          <Modal
-            id="video-modal"
-            show={videoModalActive}
-            handleClose={closeModal}
-            video="https://youtu.be/4PcUcQ9xGy8"
-            videoTag="iframe" />
+       
         </div>
       </div>
     </section>
   );
 }
 
-Hero.propTypes = propTypes;
-Hero.defaultProps = defaultProps;
+HeroCancel.propTypes = propTypes;
+HeroCancel.defaultProps = defaultProps;
 
-export default Hero;
+export default HeroCancel;
