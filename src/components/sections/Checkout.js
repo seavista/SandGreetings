@@ -12,6 +12,8 @@ function checkImageURL(URL) {
 //dont change default image
 URL = URL.trim();
 URL = URL.replaceAll(' ', '-');
+URL = URL.replaceAll('/', '');
+
 console.log(URL);
 if (URL === "") {
   URL = 'your-message';

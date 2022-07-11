@@ -61,7 +61,8 @@ const Hero = ({
     setGreetingText(event.target.value);
  };
 
-
+ const [isLoading, setLoading] = useState(false);
+ 
   return (
     <section
       {...props}
@@ -76,8 +77,8 @@ const Hero = ({
           </div>
 
           <p className="hero-input"> 
-          <form>
-            <input className='greeting' type="text" id="greeting" placeholder="Enter your greeting" onChange={onChangeHandler} />
+          <form onSubmit={e => { e.preventDefault(); }}>
+            <input className='greeting' type="text" id="greeting" placeholder="Enter your greeting" value={greetingText}  onChange={onChangeHandler} />
                 <Checkout greeting={greetingText} />
           </form>
           </p>
@@ -94,6 +95,7 @@ const Hero = ({
                 className="has-shadow"
                 src={require('./../../assets/images/YourMessage.jpg')}
                 alt="You message requires a custom sand greeting to be created."
+                disabled={isLoading}
                 width={896}
                 height={504} />
             </a>
