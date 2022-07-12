@@ -73,8 +73,8 @@ const Checkout = (props) => {
   const checkoutOptions = {
     lineItems: [item],
     mode: "payment",
-    successUrl: `${window.location.origin}/success?SessionId={CHECKOUT_SESSION_ID}`,
-    cancelUrl: `${window.location.origin}/cancel`,
+    successUrl: `${window.location.origin}/#/success?SessionId={CHECKOUT_SESSION_ID}`,
+    cancelUrl: `${window.location.origin}/#/cancel`,
     // lineItems: [
     //   {
     //     // price: process.env.PRICE,
