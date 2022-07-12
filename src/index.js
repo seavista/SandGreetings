@@ -22,13 +22,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render( 
   <BrowserRouter history={history} >
-    <HashRouter basename="/"> 
+ 
     <Routes>
       <Route path="*" element={<App/>}  />
       <Route path="cancel" element={<AppCancel/>}  />
       <Route path="success" element={<AppSuccess/>}  />
     </Routes>
-    </HashRouter>
+   
   </BrowserRouter>
 );
 
