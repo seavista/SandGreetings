@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 import { createBrowserHistory } from "history";
 
 import App from './App';
@@ -22,14 +22,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render( 
   <BrowserRouter history={history} >
+    <HashRouter basename="/"> 
     <Routes>
       <Route path="*" element={<App/>}  />
       <Route path="cancel" element={<AppCancel/>}  />
       <Route path="success" element={<AppSuccess/>}  />
-      
-      
-
     </Routes>
+    </HashRouter>
   </BrowserRouter>
 );
 
