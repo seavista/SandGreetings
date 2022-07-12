@@ -70,11 +70,15 @@ const Checkout = (props) => {
 
   };
 
+  const msg= props.greeting;
+
+
   const checkoutOptions = {
     lineItems: [item],
     mode: "payment",
     successUrl: `${window.location.origin}/sandgreetings/#/success?SessionId={CHECKOUT_SESSION_ID}`,
     cancelUrl: `${window.location.origin}/sandgreetings/#/cancel`,
+    clientReferenceId:`${Date.now().toString()}|${props.greeting}`, //IMPORTANT: orderid|greetings this is the only passed value in Stripe Checkout
     // lineItems: [
     //   {
     //     // price: process.env.PRICE,
@@ -109,13 +113,12 @@ const Checkout = (props) => {
     //add correct image
     //PROD stripe.image = window.location.origin + `/greetings/${cleanInput(props.greeting)}.jpg`;
     stripe.image = `https://seavista.github.io/sandgreetings/greetings/${cleanInput(props.greeting)}.jpg`;
+    stripe.clientReferenceId = props.greeting;
 
     console.log(stripe.image);
    // https://seavista.github.io/
 
-   
 
-   debugger; //! Debugger
 
 
    

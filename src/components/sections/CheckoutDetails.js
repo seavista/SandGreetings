@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { Routes, Route, useParams } from 'react-router-dom';
 import { loadStripe } from "@stripe/stripe-js";
 
 let customer = "Loading...";
@@ -13,20 +11,26 @@ const getStripe = async () => {
 
   return stripePromise;
 };
+//call outside render to prevent multiple calls
+ const stripe =  getStripe();
 
 
 const loadOrderDetails = async () => {
 
-  const stripe = await getStripe();
+ 
 
+  
 
+  let location = window.location.hash;
+  //hashtag routing needs this 
+  location = location.replace("#", "/");
+  
+  let sessionId = new URL(window.origin + location).searchParams.get('SessionId')
+  console.log(sessionId);
 
-  const queryParams = new URLSearchParams(window.location.search);
-  console.log(queryParams.get("SessionId"));
+  console.log(stripe);
 
-
-  const session = await stripe.sessions.retrieve(queryParams.get("SessionId"));
-  const customer = await stripe.customers.retrieve(session.customer);
+  
 
   //get metadata from session
   //const metadata = session.metadata;
