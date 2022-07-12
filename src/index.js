@@ -21,14 +21,15 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 
 root.render( 
-  <BrowserRouter history={history} >
- 
+<BrowserRouter history={history} basename='/sandgreetings' >
     <Routes>
       <Route path="*" element={<App/>}  />
       <Route path="cancel" element={<AppCancel/>}  />
       <Route path="success" element={<AppSuccess/>}  />
+
+
+
     </Routes>
-   
   </BrowserRouter>
 );
 
