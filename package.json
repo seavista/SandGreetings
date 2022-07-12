@@ -1,7 +1,7 @@
 {
   "name": "sandgreetings",
   "version": "0.1.0",
-  "homepage": "https://seavista.github.io/sandgreetings/",
+  "homepage": "https://seavista.github.io/sandgreetings",
   "private": true,
   "dependencies": {
     "@stripe/stripe-js": "^1.32.0",

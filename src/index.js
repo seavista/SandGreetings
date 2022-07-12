@@ -21,7 +21,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 
 root.render( 
-<HashRouter history={history} basename="/" >
+<HashRouter history={history} basename="/sandgreetings" >
     <Routes>
       <Route path="*" element={<App/>}  />
       <Route path="cancel" element={<AppCancel/>}  />
