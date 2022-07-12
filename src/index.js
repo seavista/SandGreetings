@@ -21,7 +21,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 
 root.render( 
-<BrowserRouter history={history} basename='/sandgreetings' >
+<HashRouter history={history} basename="/" >
     <Routes>
       <Route path="*" element={<App/>}  />
       <Route path="cancel" element={<AppCancel/>}  />
@@ -30,7 +30,7 @@ root.render(
 
 
     </Routes>
-  </BrowserRouter>
+  </HashRouter>
 );
 
 // ReactDOM.render(
