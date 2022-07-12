@@ -25,8 +25,8 @@ root.render(
     <HashRouter basename="/"> 
     <Routes>
       <Route path="*" element={<App/>}  />
-      <Route path="/cancel" element={<AppCancel/>}  />
-      <Route path="/success" element={<AppSuccess/>}  />
+      <Route path="cancel" element={<AppCancel/>}  />
+      <Route path="success" element={<AppSuccess/>}  />
     </Routes>
     </HashRouter>
   </BrowserRouter>
