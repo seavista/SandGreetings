@@ -8,6 +8,18 @@ import Modal from '../elements/Modal';
 
 import Checkout from "./Checkout";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
+
+// import required modules
+import { FreeMode, Navigation, Thumbs } from "swiper";
+
+
 const propTypes = {
   ...SectionProps.types
 }
@@ -38,7 +50,7 @@ const Hero = ({
   const closeModal = (e) => {
     e.preventDefault();
     setVideomodalactive(false);
-  }   
+  }
 
   const outerClasses = classNames(
     'hero section center-content',
@@ -57,9 +69,10 @@ const Hero = ({
 
   const onChangeHandler = event => {
     setGreetingText(event.target.value);
- };
+  };
 
- const [isLoading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(false);
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
 
   return (
@@ -69,7 +82,7 @@ const Hero = ({
       className={outerClasses}
     >
       <div id="firebaseui-auth-container"></div>
-      
+
       <div className="container-sm">
         <div className={innerClasses}>
           <div className="hero-content">
@@ -77,14 +90,54 @@ const Hero = ({
               Say it in <span className="text-invertColor">Sand!</span>
             </h1>
           </div>
-          
 
 
-          <div className="hero-input"> 
-          <form onSubmit={e => { e.preventDefault(); return false; }}>
-            <input className='greeting' type="text" id="greeting" placeholder="Enter your greeting" value={greetingText}  onChange={onChangeHandler} />
-            <Button  tag="a" color="primary"  className="search-button" disabled={isLoading}>{isLoading ? "Loading..." : "Search Now"}</Button>        
-          </form>
+          <h5 className='left'>Select Your Scene</h5>
+
+          <Swiper
+
+            showArrows={true}
+            loop={true}
+            spaceBetween={10}
+            slidesPerView={4}
+            freeMode={true}
+            watchSlidesProgress={true}
+            modules={[FreeMode, Navigation]}
+            className="mySwiper"
+          >
+            <SwiperSlide>
+              <img src={require('./../../assets/images/scene-1.jpg')} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={require('./../../assets/images/scene-2.jpg')} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={require('./../../assets/images/scene-1.jpg')} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={require('./../../assets/images/scene-2.jpg')} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={require('./../../assets/images/scene-1.jpg')} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={require('./../../assets/images/scene-2.jpg')} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={require('./../../assets/images/scene-1.jpg')} />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={require('./../../assets/images/scene-2.jpg')} />
+            </SwiperSlide>
+            
+          </Swiper>
+
+        <h5>↓</h5>
+          <div className="hero-input">
+            <form onSubmit={e => { e.preventDefault(); return false; }}>
+              <input className='greeting' type="text" id="greeting" placeholder="Enter your greeting" value={greetingText} onChange={onChangeHandler} />
+              <Button tag="a" color="primary" className="search-button" disabled={isLoading}>{isLoading ? "Loading..." : "Create Now"}</Button>
+            </form>
           </div>
 
           <div className="hero-figure reveal-from-bottom illustration-element-01" data-reveal-value="20px" data-reveal-delay="800">
@@ -104,18 +157,21 @@ const Hero = ({
                 height={504} />
             </a>
 
-           
           </div>
 
-           <Checkout greeting={greetingText} />
-
-
-          <Modal
+          {/* <Modal
             id="video-modal"
             show={videoModalActive}
             handleClose={closeModal}
             video="https://youtu.be/4PcUcQ9xGy8"
             videoTag="iframe" />
+          
+          */}
+
+          <Checkout greeting={greetingText} />
+
+
+
         </div>
       </div>
     </section>
