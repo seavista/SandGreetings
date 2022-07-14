@@ -9,21 +9,25 @@ import * as serviceWorker from './serviceWorker';
 import './index.css';
 import './assets/scss/style.scss';
 
+//custome Route
+import AppRoute from './utils/AppRoute';
+
 // Layouts
 import LayoutDefault from './layouts/LayoutDefault';
 import AppCancel from './AppCancel';
 import AppSuccess from './AppSuccess';
 
-const history = createBrowserHistory();
+//const history = createBrowserHistory();
+//history={history}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render( 
-<HashRouter history={history} >
+<HashRouter >
     <Routes>
-      <Route path="*" element={<App/>}   />
-      <Route path="cancel" element={<AppCancel/>}  />
-      <Route path="success" element={<AppSuccess/>}  />
+      <Route path="*" element={<App/>} LayoutDefault={<LayoutDefault />}  />
+      <Route path="cancel" element={<AppCancel/> } LayoutDefault={<LayoutDefault /> } />
+      <Route path="success" element={<AppSuccess/>} LayoutDefault={<LayoutDefault /> }/>
     </Routes>
   </HashRouter>
 );

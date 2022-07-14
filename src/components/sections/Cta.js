@@ -52,9 +52,11 @@ const Cta = ({
           className={innerClasses}
         >
           <div className="cta-slogan">
-            <h3 className="m-0">
-              Let's keep in touch
-              </h3>
+            <h1>Wow! You're Original</h1>
+            <h4 className="m-0">
+              Your message is new to our platform, it's now queued for creation. It will be ready for you to view soon.
+              </h4>
+              <h5>Enter your email address and we'll let you know when it is ready.</h5>
           </div>
           <div className="cta-action">
             <Input id="newsletter" type="email" label="Subscribe" labelHidden hasIcon="right" placeholder="Your best email">

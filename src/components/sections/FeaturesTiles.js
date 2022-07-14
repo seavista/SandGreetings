@@ -46,8 +46,8 @@ const FeaturesTiles = ({
   );
 
   const sectionHeader = {
-    title: 'Personalized with Your Customized Message',
-    paragraph: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum — semper quis lectus nulla at volutpat diam ut venenatis.'
+    title: 'Personalized with Your Message Greeting',
+    paragraph: 'Customize your message to fit your needs and we will deliver a high quality image to your in minutes.  These are just a few ideas to make your Sand Greeting.'
   };
 
   return (
@@ -73,11 +73,11 @@ const FeaturesTiles = ({
                 </div>
                 <div className="features-tiles-item-content">
                   <h4 className="mt-0 mb-8">
-                  Family Names
-                    </h4>
+                    Family Names
+                  </h4>
                   <p className="m-0 text-sm">
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
-                    </p>
+                    Honor your family's heritage with your personalized family name.
+                  </p>
                 </div>
               </div>
             </div>
@@ -95,11 +95,11 @@ const FeaturesTiles = ({
                 </div>
                 <div className="features-tiles-item-content">
                   <h4 className="mt-0 mb-8">
-                  Bride and Groom
-                    </h4>
+                    Bride and Groom
+                  </h4>
                   <p className="m-0 text-sm">
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
-                    </p>
+                  Beached theme weddings can be enhanched with beautiful Sand Greetings.
+                  </p>
                 </div>
               </div>
             </div>
@@ -117,11 +117,11 @@ const FeaturesTiles = ({
                 </div>
                 <div className="features-tiles-item-content">
                   <h4 className="mt-0 mb-8">
-                  Wedding Date
-                    </h4>
+                    Special Dates
+                  </h4>
                   <p className="m-0 text-sm">
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
-                    </p>
+                    Remebered as the day of the wedding, this day is the day worth celebrating.
+                  </p>
                 </div>
               </div>
             </div>
@@ -139,11 +139,11 @@ const FeaturesTiles = ({
                 </div>
                 <div className="features-tiles-item-content">
                   <h4 className="mt-0 mb-8">
-                  Company Logo/Slogan
-                    </h4>
+                    Company Logo/Slogan
+                  </h4>
                   <p className="m-0 text-sm">
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
-                    </p>
+                    Promote your product or service by using a custom logo or slogan.
+                  </p>
                 </div>
               </div>
             </div>
@@ -161,11 +161,11 @@ const FeaturesTiles = ({
                 </div>
                 <div className="features-tiles-item-content">
                   <h4 className="mt-0 mb-8">
-                  Favorite Sayings
-                    </h4>
+                    Favorite Sayings
+                  </h4>
                   <p className="m-0 text-sm">
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
-                    </p>
+                    Use your favorite sayings to create a unique and memorable gifts.
+                  </p>
                 </div>
               </div>
             </div>
@@ -183,11 +183,11 @@ const FeaturesTiles = ({
                 </div>
                 <div className="features-tiles-item-content">
                   <h4 className="mt-0 mb-8">
-                  Children/Grandchildren
-                    </h4>
+                    Heart Warming Messages
+                  </h4>
                   <p className="m-0 text-sm">
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
-                    </p>
+                    Show love for your your children or grandchildren with their names.
+                  </p>
                 </div>
               </div>
             </div>

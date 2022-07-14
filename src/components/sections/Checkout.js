@@ -6,14 +6,14 @@ import CardIcon from "./../../assets/images/feature-tile-icon-01.svg";
 import ButtonGroup from '../elements/ButtonGroup';
 import Button from '../elements/Button';
 
-function cleanInput(input) {
+export function cleanInput(input) {
   input = input.trim();
   input = input.replaceAll(' ', '-');
   input = input.replaceAll('/', '');
   return input;
 }
 
-function checkImageURL(URL) {
+export function checkImageURL(URL) {
 
   URL=cleanInput(URL);
   console.log(URL);
@@ -64,15 +64,15 @@ const Checkout = (props) => {
     
   const [stripeError, setStripeError] = useState(null);
   const [isLoading, setLoading] = useState(false);
+
+
+  const msg= props.greeting;
+
   const item = {
     price: "price_1LJl4OAeKJvEg73wno03jGUY",
     quantity: 1,
 
   };
-
-  const msg= props.greeting;
-
-
   const checkoutOptions = {
     lineItems: [item],
     mode: "payment",
@@ -100,7 +100,7 @@ const Checkout = (props) => {
   };
 
  
-  const redirectToCheckout = async () => {
+    const redirectToCheckout = async () => {
     setLoading(true);
     console.log("redirectToCheckout");
 
@@ -119,10 +119,6 @@ const Checkout = (props) => {
    // https://seavista.github.io/
 
 
-
-
-   
-
     const { error } = await stripe.redirectToCheckout(checkoutOptions);
     console.log("Stripe checkout error", error);
 
@@ -138,14 +134,8 @@ const Checkout = (props) => {
   return (
     <div className="checkout">
 
-           
-
             <div className="reveal-from-bottom" data-reveal-delay="600">
-               <ButtonGroup>
-                 <Button  tag="a" color="primary"  className="checkout-button" key={checkImageURL(props.greeting)} onClick={redirectToCheckout} disabled={isLoading}>{isLoading ? "Loading..." : "Order Now"}</Button> 
-                 <Button  tag="a" color="primary"  className="search-button" key={checkImageURL(props.greeting)} onClick={redirectToCheckout} disabled={isLoading}>{isLoading ? "Loading..." : "Search Now"}</Button> 
-            
-               </ButtonGroup>
+                 <Button  tag="a" color="primary"  className="checkout-button" key={checkImageURL(props.greeting)} onClick={redirectToCheckout} disabled={isLoading}>{isLoading ? "Loading..." : "Download Now"}</Button>          
              </div>
     
     </div>

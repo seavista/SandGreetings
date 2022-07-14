@@ -6,8 +6,6 @@ import Button from '../elements/Button';
 import Image from '../elements/Image';
 import Modal from '../elements/Modal';
 
-
-
 import Checkout from "./Checkout";
 
 const propTypes = {
@@ -62,8 +60,10 @@ const Hero = ({
  };
 
  const [isLoading, setLoading] = useState(false);
- 
+
+
   return (
+
     <section
       {...props}
       className={outerClasses}
@@ -83,7 +83,7 @@ const Hero = ({
           <div className="hero-input"> 
           <form onSubmit={e => { e.preventDefault(); return false; }}>
             <input className='greeting' type="text" id="greeting" placeholder="Enter your greeting" value={greetingText}  onChange={onChangeHandler} />
-                <Checkout greeting={greetingText} />
+            <Button  tag="a" color="primary"  className="search-button" disabled={isLoading}>{isLoading ? "Loading..." : "Search Now"}</Button>        
           </form>
           </div>
 
@@ -98,15 +98,18 @@ const Hero = ({
                 id="video-image"
                 className="has-shadow"
                 src={require('./../../assets/images/YourMessage.jpg')}
-                alt="You message requires a custom sand greeting to be created."
+                alt="You message requires a custom sand greeting to be created. See the bottom of the page for more information."
                 disabled={isLoading}
                 width={896}
                 height={504} />
             </a>
 
-        
-             
+           
           </div>
+
+           <Checkout greeting={greetingText} />
+
+
           <Modal
             id="video-modal"
             show={videoModalActive}

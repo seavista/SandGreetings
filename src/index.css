@@ -45,8 +45,11 @@ a.search-button
 
 a.checkout-button
 {
-  border-radius: 0px 30px 30px 0px;
-  display: none;
+  border-radius:30px;
+  margin-top: 60px;
+  width:40vw;
+ 
+
 }
 
 

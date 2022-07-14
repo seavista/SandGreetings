@@ -88,8 +88,8 @@ const HeroCancel = ({
 
           <div className="hero-input"> 
           <form onSubmit={e => { e.preventDefault(); return false; }}>
-            <input className='greeting' type="text" id="greeting" placeholder="Enter your greeting" value={greeting}  onChange={onChangeHandler} />
-                <Checkout greeting={greeting} />
+            <input className='greeting' type="text" id="greeting" placeholder="Enter your greeting" value={greetingText}  onChange={onChangeHandler} />
+            <Button  tag="a" color="primary"  className="search-button" disabled={isLoading}>{isLoading ? "Loading..." : "Search Now"}</Button>        
           </form>
           </div>
 

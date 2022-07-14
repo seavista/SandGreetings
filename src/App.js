@@ -27,28 +27,29 @@ const App = () => {
   const childRef = useRef();
   let location = useLocation();
 
-  
+  console.log("****" + childRef.current);
+
   useEffect(() => {
     const page = location.pathname;
     document.body.classList.add('is-loaded');
     document.title ="Sand Greetings | Say it in Sand"
     childRef.current.init();
     trackPage(page);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location]);
 
+ 
+
   return (
-  
+
+
     <ScrollReveal
       ref={childRef}
       children={() => (
         <LayoutDefault>
         
           <Home />
-          
-       
         
-
         </LayoutDefault>
       
       )} />
