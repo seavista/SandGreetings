@@ -1,71 +1,101 @@
 import { loadStripe } from "@stripe/stripe-js";
+import { Elements, useStripe } from '@stripe/react-stripe-js';
 
-let customer = "Loading...";
+
+
 let stripePromise;
+
+const options = {
+  // passing the client secret obtained from the server
+ // clientSecret: `${process.env.REACT_APP_STRIPE_SECRET_KEY}`,
+};
 
 const getStripe = async () => {
   if (!stripePromise) {
-    stripePromise = await loadStripe(process.env.REACT_APP_STRIPE_KEY);
+    stripePromise = await loadStripe(process.env.REACT_APP_STRIPE_KEY, options);
 
   }
 
   return stripePromise;
 };
+
 //call outside render to prevent multiple calls
- const stripe =  getStripe();
+const stripe = getStripe();
+
+
+function cleanInput(input) {
+  input = input.trim();
+  input = input.replaceAll(' ', '-');
+  input = input.replaceAll('/', '');
+  return input;
+}
+
+let orderId = "Loading...";
+let greetingImage = "";
+let greetingId="";
+
 
 
 const loadOrderDetails = async () => {
 
- 
-
-  
 
   let location = window.location.hash;
-  //hashtag routing needs this 
+  //!hashtag routing needs this 
   location = location.replace("#", "/");
-  
+
   let sessionId = new URL(window.origin + location).searchParams.get('SessionId')
   console.log(sessionId);
 
-  console.log(stripe);
+
+  //get session information from server
+  const data = await fetch('https://api.stripe.com/v1/checkout/sessions/' + sessionId, {
+    method: 'GET',
+    headers: {
+      'Authorization': 'Bearer ' + process.env.REACT_APP_STRIPE_SECRET_KEY,
+    },
+  });
+  const json = await data.json();
+  console.log(json);
+
+  //this is the data passed into Stripe Checkout.  Note: metadata fields are NOT passed into Stripe Checkout
+  const sessionClientReferenceId = json.client_reference_id;
+  console.log(sessionClientReferenceId);
+
+  //split the client reference id into greeting and order id
+  orderId = sessionClientReferenceId.split("|")[0];
+  greetingId = sessionClientReferenceId.split("|")[1];
+  document.getElementById("orderNumber").innerHTML = orderId;
+
+  //set the path to iamge from greeting name
+  greetingImage = `${window.location.origin}/sandgreetings/greetings/${greetingId}.jpg`;
+  
+  console.log(greetingImage);
+  document.getElementById("video-image").src = greetingImage;
+  //assign the download URL
+  var el = document.getElementById("downloadLink").href = greetingImage;
+  document.getElementById("downloadLink").setAttribute("download", `SandGreetings-${orderId}.jpg`);
 
   
+   
 
-  //get metadata from session
-  //const metadata = session.metadata;
+  //set the customer name
+  let customerName = json.customer_details.name;
+  document.getElementById("customerName").innerHTML = customerName;
 
 
-  return customer;
+ 
 
 };
 
 
-const StripeUser = async (customer) => {
-  return customer;
-
-}
 
 
-const CheckoutDetails = () => {
+const CheckoutDetails =  () => {
 
-  let stripe = loadOrderDetails();
-  console.log(stripe);
+  let fixedDownloadUrl = "";
 
-  let user = StripeUser(stripe);
+   loadOrderDetails();
 
-
-  return (
-
-    <div className="orderdetails">
-      <div className="reveal-from-bottom" data-reveal-delay="600">
-
-        <h1>* {customer} *</h1>
-      </div>
-
-    </div>
-
-  )
 };
 
 export default CheckoutDetails;

@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { SectionProps } from '../../utils/SectionProps';
 import CheckoutDetails from './CheckoutDetails';
 
-
+import Button from '../elements/Button';
 
 const propTypes = {
   ...SectionProps.types
@@ -52,6 +52,11 @@ const HeroSuccess = ({
             <h1 className="mt-0 mb-16 reveal-from-bottom" data-reveal-delay="200">
               Thank You for <span className="text-invertColor">Your Order!</span>
             </h1>
+            <h3><span id="customerName"></span> - Order # <span id="orderNumber">*</span></h3>
+
+            <Button download id="downloadLink"  tag="a" color="primary"  className="button primary">Download Image</Button> 
+          
+          
           </div>
 
    
@@ -65,8 +70,8 @@ const HeroSuccess = ({
                 alt="You message requires a custom sand greeting to be created."
                 width={896}
                 height={504} />
-           
-
+          
+          
            <CheckoutDetails />
              
           </div>

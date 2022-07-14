@@ -142,7 +142,7 @@ const Checkout = (props) => {
 
             <div className="reveal-from-bottom" data-reveal-delay="600">
                <ButtonGroup>
-                 <Button tag="a" color="primary"  className="checkout-button" key={checkImageURL(props.greeting)} onClick={redirectToCheckout} disabled={isLoading}>{isLoading ? "Loading..." : "Order Now"}</Button> 
+                 <Button  tag="a" color="primary"  className="checkout-button" key={checkImageURL(props.greeting)} onClick={redirectToCheckout} disabled={isLoading}>{isLoading ? "Loading..." : "Order Now"}</Button> 
                  
                </ButtonGroup>
              </div>
