@@ -68,6 +68,8 @@ const Hero = ({
       {...props}
       className={outerClasses}
     >
+      <div id="firebaseui-auth-container"></div>
+      
       <div className="container-sm">
         <div className={innerClasses}>
           <div className="hero-content">
@@ -75,6 +77,8 @@ const Hero = ({
               Say it in <span className="text-invertColor">Sand!</span>
             </h1>
           </div>
+          
+
 
           <div className="hero-input"> 
           <form onSubmit={e => { e.preventDefault(); return false; }}>

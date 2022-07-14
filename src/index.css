@@ -33,10 +33,22 @@ margin-bottom:30px;
 #downloadLink{
   margin-top:30px;
 }
-a.checkout-button
+
+.hidden{
+  display:none;
+}
+
+a.search-button
 {
   border-radius: 0px 30px 30px 0px;
 }
+
+a.checkout-button
+{
+  border-radius: 0px 30px 30px 0px;
+  display: none;
+}
+
 
 div.footer-copyright a{
   color:#000;

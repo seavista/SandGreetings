@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 import { createBrowserHistory } from "history";
@@ -18,17 +18,12 @@ const history = createBrowserHistory();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-
-
 root.render( 
 <HashRouter history={history} >
     <Routes>
-      <Route path="*" element={<App/>}  />
+      <Route path="*" element={<App/>}   />
       <Route path="cancel" element={<AppCancel/>}  />
       <Route path="success" element={<AppSuccess/>}  />
-
-
-
     </Routes>
   </HashRouter>
 );

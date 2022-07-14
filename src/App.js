@@ -5,16 +5,11 @@ import ScrollReveal from './utils/ScrollReveal';
 import ReactGA from 'react-ga';
 //https://www.npmjs.com/package/@stripe/stripe-js
 
-
-
 // Layouts
 import LayoutDefault from './layouts/LayoutDefault';
 
 // Views 
 import Home from './views/Home';
-
-
-
 
 // Initialize Google Analytics
 ReactGA.initialize(process.env.REACT_APP_GA_CODE);
@@ -28,9 +23,11 @@ const trackPage = page => {
 
 const App = () => {
 
+ 
   const childRef = useRef();
   let location = useLocation();
 
+  
   useEffect(() => {
     const page = location.pathname;
     document.body.classList.add('is-loaded');
@@ -45,7 +42,14 @@ const App = () => {
     <ScrollReveal
       ref={childRef}
       children={() => (
-        <LayoutDefault><Home /></LayoutDefault>
+        <LayoutDefault>
+        
+          <Home />
+          
+       
+        
+
+        </LayoutDefault>
       
       )} />
 
