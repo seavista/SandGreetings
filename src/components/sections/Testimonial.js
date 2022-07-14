@@ -95,7 +95,7 @@ const Testimonial = ({
               <div className="tiles-item-inner">
                 <div className="testimonial-item-content">
                   <p className="text-sm mb-0">
-                    — My coffee mug reminds me of my favorite place, the beach.  I love my morning coffee seeing "Just Brethe" in sand.</p>
+                    — My coffee mug reminds me of my favorite place, the beach.  I love my morning coffee seeing "Just Breathe" in sand.</p>
                 </div>
                 <div className="testimonial-item-footer text-xs mt-32 mb-0 has-top-divider">
                   <span className="testimonial-item-name text-color-high">Ben S.</span>
