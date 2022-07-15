@@ -53,7 +53,7 @@ a.checkout-button
 a.settings-button{
   border-radius:0px;
   width:2vw;
-  background-color: #ccc;
+  background-color: rgba(204, 204, 204, 0.466);
 }
 
 div.swiper{
@@ -72,7 +72,7 @@ div.swiper-slide img{
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
-  border-radius: 0;
+  border-radius: 15%;
 
 }
 div.swiper-slide img::selection{
