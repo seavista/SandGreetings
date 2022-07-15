@@ -38,6 +38,11 @@ margin-bottom:30px;
   display:none;
 }
 
+
+.blur{
+  filter: blur(8px);
+}
+
 a.search-button
 {
   border-radius: 0px 30px 30px 0px;
@@ -52,8 +57,10 @@ a.checkout-button
 
 a.settings-button{
   border-radius:0px;
-  width:2vw;
-  background-color: rgba(204, 204, 204, 0.466);
+  vertical-align: middle;
+  background-color: #28B2D2;
+  padding:12px 5px 5px 5px;
+  cursor: pointer;
 }
 
 div.swiper{

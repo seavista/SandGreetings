@@ -15,7 +15,7 @@ export function cleanInput(input) {
 
 export function checkImageURL(URL) {
 
-  URL=cleanInput(URL);
+  URL = cleanInput(URL);
   console.log(URL);
 
   if (URL === "") {
@@ -26,25 +26,25 @@ export function checkImageURL(URL) {
   // URL = `/greetings/${URL}.jpg`;
 
   fetch(URL)
-  .then((res) => {
-    console.log(res);
-    if (res.status == 404) {
-      
-      console.log("Image not found at " + URL); 
+    .then((res) => {
+      console.log(res);
+      if (res.status == 404) {
+
+        console.log("Image not found at " + URL);
+        return false;
+      } else {
+
+        console.log(URL);
+        //{require('./../../assets/images/YourMessage.jpg')}
+
+        document.getElementById("video-image").src = URL;
+      }
+    })
+    .catch((err) => {
+
+      console.log("Image not found at " + URL);
       return false;
-    } else {
-      
-      console.log(URL); 
-      //{require('./../../assets/images/YourMessage.jpg')}
-
-      document.getElementById("video-image").src = URL;
-    }
-  })
-  .catch((err) => {
-
-    console.log("Image not found at " + URL); 
-    return false;
-  });
+    });
 
 }
 
@@ -54,19 +54,19 @@ let stripePromise;
 const getStripe = () => {
   if (!stripePromise) {
     stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
-    
+
   }
 
   return stripePromise;
 };
 
 const Checkout = (props) => {
-    
+
   const [stripeError, setStripeError] = useState(null);
   const [isLoading, setLoading] = useState(false);
 
 
-  const msg= props.greeting;
+  const msg = props.greeting;
 
   const item = {
     price: "price_1LJl4OAeKJvEg73wno03jGUY",
@@ -78,7 +78,7 @@ const Checkout = (props) => {
     mode: "payment",
     successUrl: `${window.location.origin}/sandgreetings/#/success?SessionId={CHECKOUT_SESSION_ID}`,
     cancelUrl: `${window.location.origin}/sandgreetings/#/cancel`,
-    clientReferenceId:`${Date.now().toString()}|${props.greeting}`, //IMPORTANT: orderid|greetings this is the only passed value in Stripe Checkout
+    clientReferenceId: `${Date.now().toString()}|${props.greeting}`, //IMPORTANT: orderid|greetings this is the only passed value in Stripe Checkout
     // lineItems: [
     //   {
     //     // price: process.env.PRICE,
@@ -99,24 +99,24 @@ const Checkout = (props) => {
     // ]
   };
 
- 
-    const redirectToCheckout = async () => {
+
+  const redirectToCheckout = async () => {
     setLoading(true);
     console.log("redirectToCheckout");
 
     const stripe = await getStripe();
 
-    
+
     //! Attach the metadata
     stripe.metadata = { "order_id": Date.now().toString(), "greeting": props.greeting };
-    
+
     //add correct image
     //PROD stripe.image = window.location.origin + `/greetings/${cleanInput(props.greeting)}.jpg`;
     stripe.image = `https://seavista.github.io/sandgreetings/greetings/${cleanInput(props.greeting)}.jpg`;
     stripe.clientReferenceId = props.greeting;
 
     console.log(stripe.image);
-   // https://seavista.github.io/
+    // https://seavista.github.io/
 
 
     const { error } = await stripe.redirectToCheckout(checkoutOptions);
@@ -129,15 +129,13 @@ const Checkout = (props) => {
   if (stripeError) alert(stripeError);
 
 
- 
+
 
   return (
     <div className="checkout">
-
-            <div className="reveal-from-bottom" data-reveal-delay="600">
-                 <Button  tag="a" color="primary"  className="checkout-button" key={checkImageURL(props.greeting)} onClick={redirectToCheckout} disabled={isLoading}>{isLoading ? "Loading..." : "Download Now"}</Button>          
-             </div>
-    
+      <div className="reveal-from-bottom" data-reveal-delay="600">
+        <Button tag="a" color="primary" id="download-button" className="checkout-button hidden" key={checkImageURL(props.greeting)} onClick={redirectToCheckout} disabled={isLoading}>{isLoading ? "Loading..." : "Download Now"}</Button>
+      </div>
     </div>
   );
 };

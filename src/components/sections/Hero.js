@@ -67,14 +67,55 @@ const Hero = ({
   );
 
   const onChangeHandler = event => {
-    setGreetingText(event.target.value);
+
+    
+    if(event.target.value.length > 0) {
+      document.getElementById("video-image").classList.add("blur");
+    } else{
+      document.getElementById("video-image").classList.remove("blur");
+      setGreetingText("");
+    }
+
+   
   };
+
+
+const onKeyPressHandler = event => {
+ 
+  if(event.key === "Enter") {
+    onSubmitClickHandler(event);
+  }
+};
+
+
 
   const onClickHandler = event => {
     event.preventDefault();
     document.getElementById("swiperMain").classList.toggle("hidden");
+  };
+
+
+
+
+  const onSubmitClickHandler = event => {
+    event.preventDefault();
+     setGreetingText(document.getElementById("greeting").value);
+    
+     const swiper = document.getElementById("swiperMain");
+     if (!swiper.classList.contains("hidden")) {
+       swiper.classList.toggle("hidden");
+     }
+
+     //check if the image is loaded with valid image
+     if(document.getElementById("video-image").src !== "") {
+      document.getElementById("video-image").classList.remove("blur");
+     }
+     
+     //remove blur
+     document.getElementById("video-image").classList.remove("blur");
 
   };
+
 
 
   const [isLoading, setLoading] = useState(false);
@@ -99,9 +140,12 @@ const Hero = ({
        
           <div className="hero-input">
             <form onSubmit={e => { e.preventDefault(); return false; }}>
-              <input className='greeting' type="text" id="greeting" placeholder="Enter your greeting" value={greetingText} onChange={onChangeHandler} />
-              <Button tag="a" color="primary" className="settings-button" onClick={onClickHandler}>⚙</Button>
-              <Button tag="a" color="primary" className="search-button" disabled={isLoading}>{isLoading ? "Loading..." : "Preview"}</Button>
+      
+              <input className='greeting' autoComplete="off" type="text" id="greeting" placeholder="Enter your greeting" onChange={onChangeHandler} onKeyPress={onKeyPressHandler}  />
+              <a color="primary" className="settings-button" onClick={onClickHandler}>
+                  <img src={require('./../../assets/images/settings.png')} />
+              </a>
+              <Button tag="a" type="submit" color="primary" className="search-button" onClick={onSubmitClickHandler} disabled={isLoading}>{isLoading ? "Loading..." : "Preview"}</Button>
             </form>
           </div>
 
@@ -175,7 +219,7 @@ const Hero = ({
           
           */}
 
-          <Checkout greeting={greetingText} />
+          <Checkout greeting={greetingText}  />
 
           </div>
 
