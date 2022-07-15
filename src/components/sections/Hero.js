@@ -101,7 +101,7 @@ const Hero = ({
             <form onSubmit={e => { e.preventDefault(); return false; }}>
               <input className='greeting' type="text" id="greeting" placeholder="Enter your greeting" value={greetingText} onChange={onChangeHandler} />
               <Button tag="a" color="primary" className="settings-button" onClick={onClickHandler}>⚙</Button>
-              <Button tag="a" color="primary" className="search-button" disabled={isLoading}>{isLoading ? "Loading..." : "Create Now"}</Button>
+              <Button tag="a" color="primary" className="search-button" disabled={isLoading}>{isLoading ? "Loading..." : "Preview"}</Button>
             </form>
           </div>
 
