@@ -132,9 +132,26 @@ const Checkout = (props) => {
 
 
   return (
-    <div className="checkout">
-      <div className="reveal-from-bottom" data-reveal-delay="600">
-        <Button tag="a" color="primary" id="download-button" className="checkout-button hidden" key={checkImageURL(props.greeting)} onClick={redirectToCheckout} disabled={isLoading}>{isLoading ? "Loading..." : "Download Now"}</Button>
+
+    <div id="checkout" className="hidden">
+      <div className="benefits">
+        <h3>Print Quality Instant Download</h3>
+
+        <Button tag="a" color="primary" id="download-button" className="checkout-button hidden" key={checkImageURL(props.greeting)} onClick={redirectToCheckout} disabled={isLoading}>{isLoading ? "Loading..." : "Order Now"}</Button>
+      
+        <ul>
+          <li>Instant Download</li>
+          <li>High Quality Image</li>
+          <li>Make Cool Products</li>
+        </ul>
+
+
+      
+        <h3>$7.95</h3>
+        <p>2100 x 1500, 300dpi Resolution</p>
+
+
+
       </div>
     </div>
   );

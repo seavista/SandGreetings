@@ -14,80 +14,117 @@ code {
     monospace;
 }
 
-form{
-  display:flex;
-  flex-direction:row;
+form {
+  display: flex;
+  flex-direction: row;
 }
 
 .hero-input {
   /* Tell the input to use all the available space */
-  flex-grow:2;
+  flex-grow: 2;
   /* And hide the input's outline, so the form looks like the outline */
-  border:none;
-margin-bottom:30px;
+  border: none;
+  margin-bottom: 30px;
 
 }
 
-.button{
-  padding:10px;
-}
-
-#downloadLink{
-  margin-top:30px;
-}
-
-.hidden{
-  display:none;
+.button {
+  padding: 10px;
 }
 
 
-.blur{
+
+.hidden {
+  display: none;
+}
+
+
+.blur {
   filter: blur(8px);
 }
 
-a.search-button
-{
+a.search-button {
   border-radius: 0px 30px 30px 0px;
 
 }
 
-a.checkout-button
-{
-  border-radius:30px;
-  margin-top: 60px;
-  width:40vw;
+div#checkout {
+
+  border-radius: 30px;
+  border: solid 0px #28B2D2;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  background: #28B2D2;
+  color: white;
+  padding: 20px;
+  margin: 50px 50px 0px 50px;
 }
 
-a.settings-button{
-  border-radius:0px;
+
+div.benefits {
+
+  font-size: 1em;
+  font-weight: 600;
+  flex: content;
+  line-height: 15px;
+  align-items: center;
+
+}
+
+div.benefits ul {
+  list-style-type: none;
+  padding: 3px;
+  margin: 0px;
+  line-height: 25px;
+}
+
+div.benefits ul li:before {
+  content: '✓ ';
+
+
+}
+
+
+
+a.checkout-button {
+  border-radius: 30px;
+  width: 50vw;
+  margin-bottom: 30px;
+}
+
+a.settings-button {
+  border-radius: 0px;
 
   background-color: #28B2D2;
-  padding:15px 10px;
+  padding: 15px 10px;
   cursor: pointer;
- 
+
   font-size: 16px;
   font-weight: 600;
 }
 
 
 
-div.mySwiper{
-  margin:30px;
+div.mySwiper {
+  margin: 30px;
 }
 
 
-div.swiper-slide img{
+div.swiper-slide img {
 
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border-radius: 15%;
 
 }
-div.swiper-slide img::selection{
-border:solid 5px #fff;
+
+div.swiper-slide img::selection {
+  border: solid 5px #fff;
 }
 
-div.footer-copyright a{
-  color:#000;
+div.footer-copyright a {
+  color: #000;
 }

@@ -113,17 +113,15 @@ const Hero = ({
     }
 
 
-
-
-
-    ///document.getElementById("cta").scrollIntoView({ behavior: "smooth" });
-
-
     //check if the image is loaded with valid image
     if (document.getElementById("video-image").src !== "") {
       document.getElementById("video-image").classList.remove("blur");
       document.getElementById("video-image").scrollIntoView({ behavior: "smooth" });
     }
+
+    //show the download area
+    document.getElementById("checkout").classList.remove("hidden");
+
 
 
 
@@ -207,12 +205,7 @@ const Hero = ({
 
 
             <div className="hero-figure reveal-from-bottom illustration-element-01" data-reveal-value="20px" data-reveal-delay="800">
-              <a
-                data-video="https://youtu.be/4PcUcQ9xGy8"
-                href="#0"
-                aria-controls="video-modal"
-                onClick={openModal}
-              >
+            
                 <img
                   id="video-image"
                   className="has-shadow"
@@ -221,7 +214,7 @@ const Hero = ({
                   disabled={isLoading}
                   width={896}
                   height={504} />
-              </a>
+             
 
             </div>
 
