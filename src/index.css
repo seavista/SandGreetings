@@ -27,7 +27,7 @@ margin-bottom:30px;
 }
 
 .button{
-  padding:16px;
+  padding:10px;
 }
 
 #downloadLink{
@@ -48,10 +48,36 @@ a.checkout-button
   border-radius:30px;
   margin-top: 60px;
   width:40vw;
- 
+}
+
+a.settings-button{
+  border-radius:0px;
+  width:2vw;
+  background-color: #ccc;
+}
+
+div.swiper{
+
+
 
 }
 
+div.mySwiper{
+  margin:30px;
+}
+
+
+div.swiper-slide img{
+
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  border-radius: 0;
+
+}
+div.swiper-slide img::selection{
+border:solid 5px #fff;
+}
 
 div.footer-copyright a{
   color:#000;

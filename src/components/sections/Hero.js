@@ -12,12 +12,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/free-mode";
+import "swiper/css/pagination";
 import "swiper/css/navigation";
-import "swiper/css/thumbs";
 
 // import required modules
-import { FreeMode, Navigation, Thumbs } from "swiper";
+import { Pagination, Navigation } from "swiper";
 
 
 const propTypes = {
@@ -71,6 +70,13 @@ const Hero = ({
     setGreetingText(event.target.value);
   };
 
+  const onClickHandler = event => {
+    event.preventDefault();
+    document.getElementById("swiperMain").classList.toggle("hidden");
+
+  };
+
+
   const [isLoading, setLoading] = useState(false);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
@@ -89,22 +95,29 @@ const Hero = ({
             <h1 className="mt-0 mb-16 reveal-from-bottom" data-reveal-delay="200">
               Say it in <span className="text-invertColor">Sand!</span>
             </h1>
+          
+       
+          <div className="hero-input">
+            <form onSubmit={e => { e.preventDefault(); return false; }}>
+              <input className='greeting' type="text" id="greeting" placeholder="Enter your greeting" value={greetingText} onChange={onChangeHandler} />
+              <Button tag="a" color="primary" className="settings-button" onClick={onClickHandler}>⚙</Button>
+              <Button tag="a" color="primary" className="search-button" disabled={isLoading}>{isLoading ? "Loading..." : "Create Now"}</Button>
+            </form>
           </div>
 
-
-          <h5 className='left'>Select Your Scene</h5>
-
           <Swiper
-
-            showArrows={true}
+            id="swiperMain"
             loop={true}
+            navigation={true}
+            pagination={true}
             spaceBetween={10}
             slidesPerView={4}
-            freeMode={true}
+            freeMode={false}
             watchSlidesProgress={true}
-            modules={[FreeMode, Navigation]}
-            className="mySwiper"
+            modules={[Pagination, Navigation]}
+            className="mySwiper hidden"
           >
+            <h5>Select Your Scene</h5>
             <SwiperSlide>
               <img src={require('./../../assets/images/scene-1.jpg')} />
             </SwiperSlide>
@@ -130,15 +143,9 @@ const Hero = ({
               <img src={require('./../../assets/images/scene-2.jpg')} />
             </SwiperSlide>
             
+            
           </Swiper>
 
-        <h5>↓</h5>
-          <div className="hero-input">
-            <form onSubmit={e => { e.preventDefault(); return false; }}>
-              <input className='greeting' type="text" id="greeting" placeholder="Enter your greeting" value={greetingText} onChange={onChangeHandler} />
-              <Button tag="a" color="primary" className="search-button" disabled={isLoading}>{isLoading ? "Loading..." : "Create Now"}</Button>
-            </form>
-          </div>
 
           <div className="hero-figure reveal-from-bottom illustration-element-01" data-reveal-value="20px" data-reveal-delay="800">
             <a
@@ -170,7 +177,7 @@ const Hero = ({
 
           <Checkout greeting={greetingText} />
 
-
+          </div>
 
         </div>
       </div>
