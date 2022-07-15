@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  overflow-x: hidden;
 }
 
 code {
@@ -46,6 +48,7 @@ margin-bottom:30px;
 a.search-button
 {
   border-radius: 0px 30px 30px 0px;
+
 }
 
 a.checkout-button
@@ -59,14 +62,20 @@ a.settings-button{
   border-radius:0px;
   vertical-align: middle;
   background-color: #28B2D2;
-  padding:12px 5px 5px 5px;
+  padding:10px;
   cursor: pointer;
+
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+
 }
 
-div.swiper{
-
-
-
+a.settings-button img{
+  vertical-align: middle;
+  height:auto;
+  width:50px;
 }
 
 div.mySwiper{

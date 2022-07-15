@@ -19,6 +19,12 @@ import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper";
 
 
+//no rt clicks
+window.oncontextmenu = function () {
+  return false;
+};
+
+
 const propTypes = {
   ...SectionProps.types
 }
