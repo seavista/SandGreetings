@@ -80,7 +80,10 @@ const HeroCancel = ({
 
   function imageLoaded() {
     if (URL !== "") {
-      resolveAfter2Seconds()
+      resolveAfter2Seconds().then(() => {
+        document.getElementById("checkout").style.display = "block"; 
+      });
+
     }
   }
 
@@ -92,12 +95,12 @@ const HeroCancel = ({
         document.getElementById("video-image").classList.remove("blur");
         resolve('resolved');
 
-      }, 20);
+      }, 2000);
     });
   }
 
 
-
+ 
 
   return (
     <section
@@ -125,7 +128,7 @@ const HeroCancel = ({
               height={504} />
 
 
-
+            <Checkout greeting={greetingText} />
 
           </div>
 

@@ -17,7 +17,7 @@ code {
 form {
   display: flex;
   flex-direction: row;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .hero-input {
