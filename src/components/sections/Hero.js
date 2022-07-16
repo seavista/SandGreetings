@@ -72,6 +72,7 @@ const Hero = ({
     bottomDivider && 'has-bottom-divider'
   );
 
+
   const onChangeHandler = (event) => {
 
     //hide the download area until submit on change
@@ -85,8 +86,6 @@ const Hero = ({
 
 
     }
-
-
   };
 
 
@@ -98,7 +97,6 @@ const Hero = ({
   };
 
 
-
   const onClickHandler = event => {
     event.preventDefault();
     document.getElementById("swiperMain").classList.toggle("hidden");
@@ -106,7 +104,6 @@ const Hero = ({
 
 
   const { REACT_APP_DEFAULT_IMAGE } = process.env;
-
   const onSubmitClickHandler = event => {
     event.preventDefault();
     setGreetingText(document.getElementById("greeting").value);
@@ -118,21 +115,24 @@ const Hero = ({
     }
 
     //check if the image is loaded with valid image
-    if (document.getElementById("video-image").src !== "") {
-      document.getElementById("video-image").scrollIntoView({ behavior: "smooth" });
-      document.getElementById("video-image").classList.remove("blur");
-    }
+    //if (document.getElementById("video-image").src !== "") {
+    //  document.getElementById("video-image").scrollIntoView({ behavior: "smooth" });
+    //  document.getElementById("video-image").classList.remove("blur");
+    //}
 
     //handle the case where the image is but NOT loaded/found
     if (checkImage(document.getElementById("video-image").src)) {
+
+      document.getElementById("video-image").scrollIntoView({ behavior: "smooth" });
+      document.getElementById("video-image").classList.remove("blur");
 
       //show the download area
       document.getElementById("checkout").style.display = "block";
 
     } else {
       //move to orignal greeting found
-      //document.getElementById("cta").scrollIntoView({ behavior: "smooth" });
-      //document.getElementById("video-image").classList.remove("blur");
+      document.getElementById("cta").scrollIntoView({ behavior: "smooth" });
+      document.getElementById("video-image").classList.remove("blur");
     }
 
 
@@ -237,6 +237,7 @@ const Hero = ({
                 src={process.env.REACT_APP_DEFAULT_IMAGE}
                 alt="You message requires a custom sand greeting to be created. See the bottom of the page for more information."
                 disabled={isLoading}
+                //onLoad={() => { setLoading(false); }}
                 width={896}
                 height={504}
               />
