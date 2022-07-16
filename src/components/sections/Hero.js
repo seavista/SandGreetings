@@ -18,11 +18,14 @@ import "swiper/css/navigation";
 // import required modules
 import { Pagination, Navigation } from "swiper";
 
+import ImageDefault from "./../../assets/images/Your-Message.jpg";
+
 
 //no rt clicks
 window.oncontextmenu = function () {
   return false;
 };
+
 
 
 const propTypes = {
@@ -152,10 +155,16 @@ const Hero = ({
 
   };
 
+
 function handleGreetingNotFound() {
-  document.getElementById("cta").scrollIntoView({ behavior: "auto" }); 
-  document.getElementById("video-image").classList.remove("blur");
-}
+  if (document.getElementById("greeting").value !== "") {
+    document.getElementById("cta").scrollIntoView({ behavior: "auto" }); 
+    //set image to default image
+    setGreetingText("");
+    //ERRO document.getElementById("video-image").src = ImageDefault.src;
+    document.getElementById("video-image").classList.remove("blur");
+}};
+
 
   const [isLoading, setLoading] = useState(false);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
