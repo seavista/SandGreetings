@@ -152,7 +152,10 @@ const Hero = ({
 
   };
 
-
+function handleGreetingNotFound() {
+  document.getElementById("cta").scrollIntoView({ behavior: "auto" }); 
+  document.getElementById("video-image").classList.remove("blur");
+}
 
   const [isLoading, setLoading] = useState(false);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -238,6 +241,7 @@ const Hero = ({
                 alt="You message requires a custom sand greeting to be created. See the bottom of the page for more information."
                 disabled={isLoading}
                 //onLoad={() => { setLoading(false); }}
+                onError={() => { handleGreetingNotFound(); }}
                 width={896}
                 height={504}
               />

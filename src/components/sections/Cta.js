@@ -53,7 +53,8 @@ const Cta = ({
           className={innerClasses}
         >
           <div className="cta-slogan">
-            <h1>Wow! You're Original</h1>
+            <h1>Wow! You're an Original</h1>
+            
             <h4 className="m-0">
               Your message is new to our platform, it's now queued for creation. It will be ready for you to view soon.
               </h4>

@@ -129,7 +129,7 @@ const FeaturesSplit = ({
                   And So Much More...
                   </h3>
                 <p className="m-0">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua — Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  Sand Greetings are perfect way to send a memorable message to your friends and family. Use your Sand Greeting to create a beautiful gift that will be cherished for years to come.
                   </p>
               </div>
               <div className={
