@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/sandgreetings/static/css/main.aff007e0.css",
+    "main.css": "/sandgreetings/static/css/main.1e2567b3.css",
     "main.js": "/sandgreetings/static/js/main.a7f1c740.js",
     "static/media/scene-1.jpg": "/sandgreetings/static/media/scene-1.45cc7409382ac2fdd0c1.jpg",
     "static/media/Accesories.png": "/sandgreetings/static/media/Accesories.8e583b48735fd25dd469.png",
@@ -18,11 +18,11 @@
     "static/media/feature-tile-icon-04.svg": "/sandgreetings/static/media/feature-tile-icon-04.78f92ee86730e1ca3255544386a21e0a.svg",
     "static/media/feature-tile-icon-05.svg": "/sandgreetings/static/media/feature-tile-icon-05.7384a98493328cd0c741b4ff2eaf25e3.svg",
     "index.html": "/sandgreetings/index.html",
-    "main.aff007e0.css.map": "/sandgreetings/static/css/main.aff007e0.css.map",
+    "main.1e2567b3.css.map": "/sandgreetings/static/css/main.1e2567b3.css.map",
     "main.a7f1c740.js.map": "/sandgreetings/static/js/main.a7f1c740.js.map"
   },
   "entrypoints": [
-    "static/css/main.aff007e0.css",
+    "static/css/main.1e2567b3.css",
     "static/js/main.a7f1c740.js"
   ]
 }
