@@ -138,13 +138,16 @@ const Checkout = (props) => {
         <h3>Print Quality Instant Download</h3>
 
         <Button tag="a" color="primary" id="download-button" className="checkout-button hidden" key={checkImageURL(props.greeting)} onClick={redirectToCheckout} disabled={isLoading}>{isLoading ? "Loading..." : "Order Now"}</Button>
-      
-        <ul>
-          <li>Instant Download</li>
-          <li>Ultra High Quality Image</li>
-          <li>Create Printed Gifts</li>
-        </ul>
-
+        <div className="checkout-benefit-group">
+          <ul>
+            <li>Instant Download</li>
+            <li>Print Quality Image</li>
+            <li>Create Cool Gifts</li>
+            <li>No Sign Up Required</li>
+          
+            
+          </ul>
+        </div>
 
       
         <h3>$7.95 USD</h3>

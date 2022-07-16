@@ -82,7 +82,7 @@ const Hero = ({
     } else {
       document.getElementById("video-image").classList.remove("blur");
       setGreetingText("");
-    
+
 
     }
 
@@ -106,43 +106,39 @@ const Hero = ({
 
 
   const { REACT_APP_DEFAULT_IMAGE } = process.env;
- 
+
   const onSubmitClickHandler = event => {
     event.preventDefault();
     setGreetingText(document.getElementById("greeting").value);
 
     const swiper = document.getElementById("swiperMain");
+    
     if (!swiper.classList.contains("hidden")) {
       swiper.classList.toggle("hidden");
     }
 
-
     //check if the image is loaded with valid image
     if (document.getElementById("video-image").src !== "") {
-      
       document.getElementById("video-image").scrollIntoView({ behavior: "smooth" });
       document.getElementById("video-image").classList.remove("blur");
-
-       
-
     }
 
-    
-
     //handle the case where the image is but NOT loaded/found
-    if(checkImage(document.getElementById("video-image").src)){
+    if (checkImage(document.getElementById("video-image").src)) {
 
       //show the download area
       document.getElementById("checkout").style.display = "block";
 
-    }else{
+    } else {
       //move to orignal greeting found
       //document.getElementById("cta").scrollIntoView({ behavior: "smooth" });
       //document.getElementById("video-image").classList.remove("blur");
     }
 
+
+
     function checkImage(url) {
-      return new Promise(function (resolve, reject) { 
+      return new Promise(function (resolve, reject) {
         var img = new Image();
         img.onload = function () {
           resolve(true);
@@ -154,7 +150,7 @@ const Hero = ({
       });
     }
 
- };
+  };
 
 
 
@@ -181,12 +177,12 @@ const Hero = ({
             <div className="hero-input">
               <form onSubmit={e => { e.preventDefault(); return false; }}>
 
-                <input className='greeting' autoComplete="off" type="text" id="greeting" placeholder="Enter your greeting" onBlur={onSubmitClickHandler} onChange={onChangeHandler} onKeyPress={onKeyPressHandler} />
+                <input className='greeting' maxLength={256} autoComplete="off" type="text" id="greeting" placeholder="Enter your greeting" onBlur={onSubmitClickHandler} onChange={onChangeHandler} onKeyPress={onKeyPressHandler} />
                 <a color="primary" className="settings-button" onClick={onClickHandler}>
                   {/* <img src={require('./../../assets/images/settings.png')} /> */}
                   Options
                 </a>
-                <Button tag="a"  type="submit" color="primary" className="search-button" onClick={onSubmitClickHandler} disabled={isLoading}>{isLoading ? "Loading..." : "Preview"}</Button>
+                <Button tag="a" type="submit" color="primary" className="search-button" onClick={onSubmitClickHandler} disabled={isLoading}>{isLoading ? "Loading..." : "?"}</Button>
               </form>
             </div>
 
@@ -234,17 +230,17 @@ const Hero = ({
 
 
             <div className="hero-figure reveal-from-bottom illustration-element-01" data-reveal-value="20px" data-reveal-delay="800">
-            
-                <img
-                  id="video-image"
-                  className="has-shadow"
-                  src={process.env.REACT_APP_DEFAULT_IMAGE}
-                  alt="You message requires a custom sand greeting to be created. See the bottom of the page for more information."
-                  disabled={isLoading}
-                  width={896}
-                  height={504}
-                   />
-             
+
+              <img
+                id="video-image"
+                className="has-shadow"
+                src={process.env.REACT_APP_DEFAULT_IMAGE}
+                alt="You message requires a custom sand greeting to be created. See the bottom of the page for more information."
+                disabled={isLoading}
+                width={896}
+                height={504}
+              />
+
 
             </div>
 

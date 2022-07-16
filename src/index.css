@@ -17,6 +17,7 @@ code {
 form {
   display: flex;
   flex-direction: row;
+  font-size: 12px;
 }
 
 .hero-input {
@@ -43,10 +44,6 @@ form {
   filter: blur(8px);
 }
 
-a.search-button {
-  border-radius: 0px 30px 30px 0px;
-
-}
 
 div#checkout {
 
@@ -75,39 +72,52 @@ div.benefits {
 
 }
 
+div.checkout-benefit-group {
+ display:flexbox;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+}
+
 div.benefits ul {
+
   list-style-type: none;
   padding: 3px;
   margin: 0px;
   line-height: 25px;
+
 }
+
+
 
 div.benefits ul li:before {
   content: '✓ ';
 
-
 }
 
+a.search-button {
+  border-radius: 0px 30px 30px 0px;
+  display: none;
+}
 
 
 a.checkout-button {
   border-radius: 30px;
   width: 50vw;
   margin-bottom: 30px;
+
 }
 
 a.settings-button {
   border-radius: 0px;
-
+  border-radius: 0px 30px 30px 0px;
   background-color: #28B2D2;
   padding: 15px 10px;
   cursor: pointer;
 
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 600;
 }
-
-
 
 div.mySwiper {
   margin: 30px;
@@ -129,4 +139,19 @@ div.swiper-slide img::selection {
 
 div.footer-copyright a {
   color: #000;
+}
+
+#greeting {
+	width: 100%;
+	border-radius: 30px 0px 0px 30px;
+	padding:20px;
+	border:0;
+	display:flex;
+	flex-direction:row;
+}
+
+#greeting input{
+	  /* ell the input to use all the available space */
+	  flex-grow:2;
+	 
 }
