@@ -1,4 +1,7 @@
-import React, { useState, useSearchParams } from 'react';
+import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom'
+
+
 import classNames from 'classnames';
 import { SectionProps } from '../../utils/SectionProps';
 import ButtonGroup from '../elements/ButtonGroup';
@@ -40,7 +43,7 @@ const HeroCancel = ({
   const closeModal = (e) => {
     e.preventDefault();
     setVideomodalactive(false);
-  }   
+  }
 
   const outerClasses = classNames(
     'hero section center-content',
@@ -57,22 +60,45 @@ const HeroCancel = ({
     bottomDivider && 'has-bottom-divider'
   );
 
-  const onChangeHandler = event => {
-    setGreetingText(event.target.value);
- };
 
- const [isLoading, setLoading] = useState(false);
 
-  let search = window.location.search;
-  let params = new URLSearchParams(search);
-  let greeting = greetingText;
+  const [isLoading, setLoading] = useState(false);
+  const [imageUrl, setImageUrl] = useState("");
 
-  if(params.get('greeting') !== null) {
-    greeting = params.get('greeting');
+  const location = useLocation()
+  const searchParams = new URLSearchParams(location.search)
+  let URL = "";
+
+  if (searchParams.get('greeting') !== null) {
+    let greeting = searchParams.get('greeting');
+
+    //process.env.PUBLIC_URL + `/greetings/${searchParams.get('greeting')}.jpg`
+    URL = process.env.PUBLIC_URL + `/greetings/${searchParams.get('greeting')}.jpg`;
+
+
   }
 
- 
- 
+  function imageLoaded() {
+    if (URL !== "") {
+      resolveAfter2Seconds()
+    }
+  }
+
+  function resolveAfter2Seconds() {
+    return new Promise(resolve => {
+      setTimeout(() => {
+
+        document.getElementById("video-image").src = URL;
+        document.getElementById("video-image").classList.remove("blur");
+        resolve('resolved');
+
+      }, 20);
+    });
+  }
+
+
+
+
   return (
     <section
       {...props}
@@ -86,29 +112,23 @@ const HeroCancel = ({
             </h1>
           </div>
 
-          <div className="hero-input"> 
-          <form onSubmit={e => { e.preventDefault(); return false; }}>
-            <input className='greeting' type="text" id="greeting" placeholder="Enter your greeting" value={greetingText}  onChange={onChangeHandler} />
-            <Button  tag="a" color="primary"  className="search-button" disabled={isLoading}>{isLoading ? "Loading..." : "Search Now"}</Button>        
-          </form>
-          </div>
-
           <div className="hero-figure reveal-from-bottom illustration-element-01" data-reveal-value="20px" data-reveal-delay="800">
-          
-              <img
-                id="video-image"
-                className="has-shadow"
-                src={require('./../../assets/images/YourMessage.jpg')}
-                alt="You message requires a custom sand greeting to be created."
-                disabled={isLoading}
-                width={896}
-                height={504} />
-           
 
-        
-             
+            <Image
+              id="video-image"
+              className="has-shadow"
+              src={require(`./../../assets/images/YourMessage.jpg`)}
+              alt="You message requires a custom sand greeting to be created."
+              disabled={isLoading}
+              onLoad={imageLoaded()}
+              width={896}
+              height={504} />
+
+
+
+
           </div>
-       
+
         </div>
       </div>
     </section>

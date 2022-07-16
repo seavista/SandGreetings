@@ -46,7 +46,7 @@ const FeaturesTiles = ({
   );
 
   const sectionHeader = {
-    title: 'Personalized with Your Message Greeting',
+    title: 'Personalized Sand Greetings',
     paragraph: 'Customize your message to fit your needs and we will deliver a high quality image to your in minutes.  These are just a few ideas to make your Sand Greeting.'
   };
 

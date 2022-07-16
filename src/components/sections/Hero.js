@@ -213,7 +213,8 @@ const Hero = ({
                   alt="You message requires a custom sand greeting to be created. See the bottom of the page for more information."
                   disabled={isLoading}
                   width={896}
-                  height={504} />
+                  height={504}
+                  onContextMenu="return false;" />
              
 
             </div>

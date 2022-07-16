@@ -69,7 +69,7 @@ const Checkout = (props) => {
   const msg = props.greeting;
 
   const item = {
-    price: "price_1LJl4OAeKJvEg73wno03jGUY",
+    price: "price_1LLxsSAeKJvEg73w3lI9I3y9",
     quantity: 1,
 
   };
@@ -77,7 +77,7 @@ const Checkout = (props) => {
     lineItems: [item],
     mode: "payment",
     successUrl: `${window.location.origin}/sandgreetings/#/success?SessionId={CHECKOUT_SESSION_ID}`,
-    cancelUrl: `${window.location.origin}/sandgreetings/#/cancel`,
+    cancelUrl: `${window.location.origin}/sandgreetings/#/cancel?greeting=${props.greeting}`,
     clientReferenceId: `${Date.now().toString()}|${props.greeting}`, //IMPORTANT: orderid|greetings this is the only passed value in Stripe Checkout
     // lineItems: [
     //   {
@@ -147,7 +147,7 @@ const Checkout = (props) => {
 
 
       
-        <h3>$7.95</h3>
+        <h3>$7.95 USD</h3>
         <p>2100 x 1500, 300dpi Resolution</p>
 
 
