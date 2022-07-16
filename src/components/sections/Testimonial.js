@@ -101,7 +101,7 @@ const Testimonial = ({
                   <span className="testimonial-item-name text-color-high">Ben S.</span>
                   <span className="text-color-low"> / </span>
                   <span className="testimonial-item-link">
-                    <a href="#0">Coffee Mug</a>
+                    <a href="">Coffee Mug</a>
                   </span>
                 </div>
               </div>

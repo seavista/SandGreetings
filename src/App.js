@@ -27,9 +27,7 @@ const App = () => {
   const childRef = useRef();
   let location = useLocation();
 
-  console.log("****" + childRef.current);
-
-  useEffect(() => {
+   useEffect(() => {
     const page = location.pathname;
     document.body.classList.add('is-loaded');
     document.title ="Sand Greetings | Say it in Sand"

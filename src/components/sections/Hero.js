@@ -72,14 +72,18 @@ const Hero = ({
     bottomDivider && 'has-bottom-divider'
   );
 
-  const onChangeHandler = event => {
+  const onChangeHandler = (event) => {
 
+    //hide the download area until submit on change
+    document.getElementById("checkout").style.display = "none";
 
     if (event.target.value.length > 0) {
       document.getElementById("video-image").classList.add("blur");
     } else {
       document.getElementById("video-image").classList.remove("blur");
       setGreetingText("");
+    
+
     }
 
 
@@ -101,8 +105,8 @@ const Hero = ({
   };
 
 
-
-
+  const { REACT_APP_DEFAULT_IMAGE } = process.env;
+ 
   const onSubmitClickHandler = event => {
     event.preventDefault();
     setGreetingText(document.getElementById("greeting").value);
@@ -115,17 +119,42 @@ const Hero = ({
 
     //check if the image is loaded with valid image
     if (document.getElementById("video-image").src !== "") {
-      document.getElementById("video-image").classList.remove("blur");
+      
       document.getElementById("video-image").scrollIntoView({ behavior: "smooth" });
+      document.getElementById("video-image").classList.remove("blur");
+
+       
+
     }
 
-    //show the download area
-    document.getElementById("checkout").classList.remove("hidden");
+    
 
+    //handle the case where the image is but NOT loaded/found
+    if(checkImage(document.getElementById("video-image").src)){
 
+      //show the download area
+      document.getElementById("checkout").style.display = "block";
 
+    }else{
+      //move to orignal greeting found
+      //document.getElementById("cta").scrollIntoView({ behavior: "smooth" });
+      //document.getElementById("video-image").classList.remove("blur");
+    }
 
-  };
+    function checkImage(url) {
+      return new Promise(function (resolve, reject) { 
+        var img = new Image();
+        img.onload = function () {
+          resolve(true);
+        };
+        img.onerror = function () {
+          resolve(false);
+        };
+        img.src = url;
+      });
+    }
+
+ };
 
 
 
@@ -152,12 +181,12 @@ const Hero = ({
             <div className="hero-input">
               <form onSubmit={e => { e.preventDefault(); return false; }}>
 
-                <input className='greeting' autoComplete="off" type="text" id="greeting" placeholder="Enter your greeting" onChange={onChangeHandler} onKeyPress={onKeyPressHandler} />
+                <input className='greeting' autoComplete="off" type="text" id="greeting" placeholder="Enter your greeting" onBlur={onSubmitClickHandler} onChange={onChangeHandler} onKeyPress={onKeyPressHandler} />
                 <a color="primary" className="settings-button" onClick={onClickHandler}>
                   {/* <img src={require('./../../assets/images/settings.png')} /> */}
                   Options
                 </a>
-                <Button tag="a" type="submit" color="primary" className="search-button" onClick={onSubmitClickHandler} disabled={isLoading}>{isLoading ? "Loading..." : "Preview"}</Button>
+                <Button tag="a"  type="submit" color="primary" className="search-button" onClick={onSubmitClickHandler} disabled={isLoading}>{isLoading ? "Loading..." : "Preview"}</Button>
               </form>
             </div>
 
@@ -209,12 +238,12 @@ const Hero = ({
                 <img
                   id="video-image"
                   className="has-shadow"
-                  src={require('./../../assets/images/YourMessage.jpg')}
+                  src={process.env.REACT_APP_DEFAULT_IMAGE}
                   alt="You message requires a custom sand greeting to be created. See the bottom of the page for more information."
                   disabled={isLoading}
                   width={896}
                   height={504}
-                  onContextMenu="return false;" />
+                   />
              
 
             </div>

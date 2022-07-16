@@ -117,7 +117,7 @@ const HeroCancel = ({
             <Image
               id="video-image"
               className="has-shadow"
-              src={require(`./../../assets/images/YourMessage.jpg`)}
+              src={process.env.REACT_APP_DEFAULT_IMAGE}
               alt="You message requires a custom sand greeting to be created."
               disabled={isLoading}
               onLoad={imageLoaded()}

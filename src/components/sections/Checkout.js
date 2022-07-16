@@ -141,14 +141,14 @@ const Checkout = (props) => {
       
         <ul>
           <li>Instant Download</li>
-          <li>High Quality Image</li>
-          <li>Make Cool Products</li>
+          <li>Ultra High Quality Image</li>
+          <li>Create Printed Gifts</li>
         </ul>
 
 
       
         <h3>$7.95 USD</h3>
-        <p>2100 x 1500, 300dpi Resolution</p>
+        <h5>2100 x 1500, 300dpi Resolution</h5>
 
 
 
