@@ -95,7 +95,6 @@ const Hero = ({
       document.getElementById("video-image").classList.add("blur");
     } else {
       document.getElementById("video-image").classList.remove("blur");
-      document.getElementById("video-image").src = process.env.PUBLIC_URL + "/greetings/Your-Message.jpg";
       setGreetingText("");
 
 
