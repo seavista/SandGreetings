@@ -156,7 +156,7 @@ const Hero = ({
    
     document.getElementById("cta").scrollIntoView({ behavior: "auto" });
     document.getElementById("video-image").classList.add("blur");
-    document.getElementById("video-image").src = process.env.PUBLIC_URL + "/greetings/Your-Message.jpg";
+    document.getElementById("video-image").src = DefaultImage;
     //hide the download area
     document.getElementById("checkout").style.display = "none";
     
