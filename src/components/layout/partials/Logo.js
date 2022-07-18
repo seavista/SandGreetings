@@ -15,7 +15,7 @@ const Logo = ({
 
 
   function onClickHandler(e) {
-    window.scrollTo(0, 0, { behavior: 'auto' });
+    window.scrollTo(0, 0, { behavior: 'auto', block: 'start', inline: 'nearest', duration: 10, easing: 'easeInOutCubic' });
   }
 
   return (

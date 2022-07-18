@@ -18,7 +18,7 @@ import "swiper/css/navigation";
 // import required modules
 import { Pagination, Navigation } from "swiper";
 
-import ImageDefault from "./../../assets/images/Your-Message.jpg";
+
 
 
 //no rt clicks
@@ -36,6 +36,10 @@ const defaultProps = {
   ...SectionProps.defaults
 }
 
+
+
+
+
 const Hero = ({
   className,
   topOuterDivider,
@@ -46,6 +50,9 @@ const Hero = ({
   invertColor,
   ...props
 }) => {
+
+  
+
 
   const [videoModalActive, setVideomodalactive] = useState(false);
   const [greetingText, setGreetingText] = useState("");
@@ -123,47 +130,46 @@ const Hero = ({
     //  document.getElementById("video-image").classList.remove("blur");
     //}
 
-    //handle the case where the image is but NOT loaded/found
-    if (checkImage(document.getElementById("video-image").src)) {
+    // checkImage(document.getElementById("video-image").src).then(function (result) {
+    //   console.log("***" + result);
+    //   if (result) {
+    //     document.getElementById("video-image").scrollIntoView({ behavior: "smooth" });
+    //     document.getElementById("video-image").classList.remove("blur");
+    //   }else {
+    //     document.getElementById("video-image").classList.add("blur");
+        
+    //   }
 
-      document.getElementById("video-image").scrollIntoView({ behavior: "smooth" });
+    // });
+
+ 
+    //handle the case where the image is but NOT loaded/found
+    if (document.getElementById("video-image").src !== process.env.REACT_APP_DEFAULT_IMAGE) {
+
+      document.getElementById("video-image").scrollIntoView({ behavior: "auto" });
       document.getElementById("video-image").classList.remove("blur");
 
       //show the download area
       document.getElementById("checkout").style.display = "block";
 
-    } else {
-      //move to orignal greeting found
-      document.getElementById("cta").scrollIntoView({ behavior: "smooth" });
-      document.getElementById("video-image").classList.remove("blur");
-    }
+    } 
 
 
-
-    function checkImage(url) {
-      return new Promise(function (resolve, reject) {
-        var img = new Image();
-        img.onload = function () {
-          resolve(true);
-        };
-        img.onerror = function () {
-          resolve(false);
-        };
-        img.src = url;
-      });
-    }
 
   };
 
+  
 
-function handleGreetingNotFound() {
-  if (document.getElementById("greeting").value !== "") {
+
+
+
+
+function handleGreetingNotFound(e) {
+    //hide the download area
+    document.getElementById("checkout").style.display = "none";
+    document.getElementById("video-image").classList.add("blur");
     document.getElementById("cta").scrollIntoView({ behavior: "auto" }); 
-    //set image to default image
-    //setGreetingText("");
-    //document.getElementById("video-image").src = ImageDefault.src;
-    document.getElementById("video-image").classList.remove("blur");
-}};
+  };
 
 
   const [isLoading, setLoading] = useState(false);
@@ -250,7 +256,7 @@ function handleGreetingNotFound() {
                 alt="You message requires a custom sand greeting to be created. See the bottom of the page for more information."
                 disabled={isLoading}
                 //onLoad={() => { setLoading(false); }}
-                onError={() => { handleGreetingNotFound(); }}
+                onError={(e) => { handleGreetingNotFound(e); }}
                 width={896}
                 height={504}
               />

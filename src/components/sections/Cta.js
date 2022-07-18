@@ -58,6 +58,8 @@ const Cta = ({
             <h4 className="m-0">
               Your message is new to our platform, it's now queued for creation. It will be ready for you to view soon.
               </h4>
+
+              <h5>"Your Message Here"</h5>
               <h5>Enter your email address and we'll let you know when it is ready.</h5>
           </div>
           <div className="cta-action">
