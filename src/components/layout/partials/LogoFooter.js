@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import Image from '../../elements/Image';
 
-const Logo = ({
+const LogoFooter = ({
   className,
   ...props
 }) => {
@@ -14,6 +14,12 @@ const Logo = ({
   );
 
 
+function onClickHandler(e) {
+  e.preventDefault();
+  document.getElementById("greeting").scrollIntoView({ behavior: "auto" });
+  document.getElementById("greeting").focus();
+  
+}
 
 
   return (
@@ -23,7 +29,7 @@ const Logo = ({
     >
       <h1 className="m-5">
        
-        <Link to="/">
+        <Link to="/" onClick={onClickHandler}>
           <Image
             src={require('./../../../assets/images/logo.png')}
             alt="Open"
@@ -36,4 +42,4 @@ const Logo = ({
   );
 }
 
-export default Logo;
+export default LogoFooter;
