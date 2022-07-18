@@ -40,8 +40,14 @@ form {
 }
 
 
+
 .blur {
   filter: blur(8px);
+
+}
+
+img.blur {
+  image-rendering: pixelated;
 }
 
 

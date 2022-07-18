@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import { SectionProps } from '../../utils/SectionProps';
-import { checkImageURL } from '../../utils/ImageUtils';
+import { cleanInput } from '../../utils/ImageUtils';
 import ButtonGroup from '../elements/ButtonGroup';
 import Button from '../elements/Button';
 import Image from '../elements/Image';
@@ -26,7 +26,7 @@ import { Pagination, Navigation } from "swiper";
 
 //no rt clicks
 window.oncontextmenu = function () {
-  return false;
+  //return false;
 };
 
 
@@ -120,7 +120,8 @@ const Hero = ({
   const onSubmitClickHandler = event => {
     event.preventDefault();
 
-    setGreetingText(event.target.value);
+    document.getElementById("footerGreetingText").value = document.getElementById("greeting").value;
+    setGreetingText(document.getElementById("greeting").value);
 
     const swiper = document.getElementById("swiperMain");
 
@@ -128,9 +129,10 @@ const Hero = ({
       swiper.classList.toggle("hidden");
     }
 
-    let currentInput = document.getElementById("greeting").value;
+    let currentInput = cleanInput(document.getElementById("greeting").value);
+   
     let greetingImage = process.env.PUBLIC_URL + `/greetings/${currentInput}.jpg`;
-    //console.log(greetingImage);
+  
 
 
     // assign and show the image, the OnError of Image will Handle No Image Found and use the default image 
@@ -141,7 +143,7 @@ const Hero = ({
     document.getElementById("checkout").style.display = "block";
 
     //scroll into view
-    console.log(event.target);
+    //console.log(event.target);
     if(event.target.id === 'greeting' || event.type === 'blur'){
       document.getElementById("video-image").scrollIntoView({ behavior: "auto" });
     }
@@ -247,11 +249,11 @@ const Hero = ({
 
               <img
                 id="video-image"
-                className="has-shadow"
+                className="has-shadow blur"
                 src={DefaultImage}
                 alt="You message requires a custom sand greeting to be created. See the bottom of the page for more information."
                 disabled={isLoading}
-                //onLoaded={(e) => { handleImageLoaded(e); }}
+                onLoad={(e) => { document.getElementById('video-image').classList.remove("blur"); }}
                 onError={(e) => { handleGreetingNotFound(e); }}
                 width={896}
                 height={504}

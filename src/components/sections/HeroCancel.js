@@ -61,6 +61,11 @@ const HeroCancel = ({
   );
 
 
+  const imageClasses = classNames(
+    'has-shadow', ' blur'
+  );
+
+
 
   const [isLoading, setLoading] = useState(false);
   const [imageUrl, setImageUrl] = useState("");
@@ -117,10 +122,10 @@ const HeroCancel = ({
 
           <div className="hero-figure reveal-from-bottom illustration-element-01" data-reveal-value="20px" data-reveal-delay="800">
 
-            <Image
+            <img
               id="video-image"
-              className="has-shadow"
-              src={process.env.REACT_APP_DEFAULT_IMAGE}
+              className="has-shadow blur"
+              src={require(process.env.REACT_APP_DEFAULT_IMAGE)}
               alt="You message requires a custom sand greeting to be created."
               disabled={isLoading}
               onLoad={imageLoaded()}

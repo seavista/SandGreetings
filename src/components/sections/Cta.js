@@ -4,6 +4,8 @@ import classNames from 'classnames';
 import { SectionProps } from '../../utils/SectionProps';
 import Input from '../elements/Input';
 
+
+
 const propTypes = {
   ...SectionProps.types,
   split: PropTypes.bool
@@ -42,6 +44,9 @@ const Cta = ({
     split && 'cta-split'
   );  
 
+
+
+
   return (
     <section
       {...props}
@@ -53,13 +58,16 @@ const Cta = ({
           className={innerClasses}
         >
           <div className="cta-slogan">
-            <h1>Wow! You're an Original</h1>
+            <h1>Wow! You're Original</h1>
             
             <h4 className="m-0">
               Your message is new to our platform, it's now queued for creation. It will be ready for you to view soon.
               </h4>
 
-              <h5>"Your Message Here"</h5>
+            <h5 id="footerGreetingText">{(document.getElementById('greeting')) ? document.getElementById('greeting').value : '{empty}' }</h5>
+
+           
+          
               <h5>Enter your email address and we'll let you know when it is ready.</h5>
           </div>
           <div className="cta-action">
