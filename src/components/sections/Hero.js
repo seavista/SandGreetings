@@ -130,7 +130,7 @@ const Hero = ({
 
     let currentInput = document.getElementById("greeting").value;
     let greetingImage = process.env.PUBLIC_URL + `/greetings/${currentInput}.jpg`;
-    console.log(greetingImage);
+    //console.log(greetingImage);
 
 
     // assign and show the image, the OnError of Image will Handle No Image Found and use the default image 
@@ -141,8 +141,11 @@ const Hero = ({
     document.getElementById("checkout").style.display = "block";
 
     //scroll into view
-    document.getElementById("video-image").scrollIntoView({ behavior: "auto" });
-
+    console.log(event.target);
+    if(event.target.id === 'greeting' || event.type === 'blur'){
+      document.getElementById("video-image").scrollIntoView({ behavior: "auto" });
+    }
+    
 
   };
 
@@ -188,7 +191,7 @@ const Hero = ({
             <div className="hero-input">
               <form onSubmit={e => { e.preventDefault(); return false; }}>
 
-                <input className='greeting' maxLength={256} autoComplete="off" type="text" id="greeting" placeholder="Enter your greeting" onBlur={onSubmitClickHandler} onChange={onChangeHandler} onKeyPress={onKeyPressHandler} />
+                <input className='greeting' maxLength={256} autoComplete="off" type="text" id="greeting" placeholder="Enter your greeting"  onChange={onChangeHandler} onKeyPress={onKeyPressHandler} />
                 <a color="primary" className="settings-button" onClick={onClickHandler}>
                   {/* <img src={require('./../../assets/images/settings.png')} /> */}
                   Options
