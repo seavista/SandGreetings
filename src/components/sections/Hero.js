@@ -160,8 +160,8 @@ function handleGreetingNotFound() {
   if (document.getElementById("greeting").value !== "") {
     document.getElementById("cta").scrollIntoView({ behavior: "auto" }); 
     //set image to default image
-    setGreetingText("");
-    //ERRO document.getElementById("video-image").src = ImageDefault.src;
+    //setGreetingText("");
+    //document.getElementById("video-image").src = ImageDefault.src;
     document.getElementById("video-image").classList.remove("blur");
 }};
 

@@ -13,6 +13,11 @@ const Logo = ({
     className
   );
 
+
+  function onClickHandler(e) {
+    window.scrollTo(0, 0, { behavior: 'auto' });
+  }
+
   return (
     <div
       {...props}
@@ -20,13 +25,14 @@ const Logo = ({
     >
       <h1 className="m-5">
        
-        <Link to="/">
+        
           <Image
             src={require('./../../../assets/images/logo.png')}
             alt="Open"
             width={350}
-            height={150} />
-        </Link>
+            height={150} 
+            onClick={onClickHandler} />
+       
        
       </h1>
     </div>
