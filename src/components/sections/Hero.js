@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import { SectionProps } from '../../utils/SectionProps';
+import { checkImageURL } from '../../utils/ImageUtils';
 import ButtonGroup from '../elements/ButtonGroup';
 import Button from '../elements/Button';
 import Image from '../elements/Image';
 import Modal from '../elements/Modal';
+
+import DefaultImage from './../../assets/images/Your-Message.jpg';
 
 import Checkout from "./Checkout";
 
@@ -51,7 +54,7 @@ const Hero = ({
   ...props
 }) => {
 
-  
+
 
 
   const [videoModalActive, setVideomodalactive] = useState(false);
@@ -92,6 +95,7 @@ const Hero = ({
       document.getElementById("video-image").classList.add("blur");
     } else {
       document.getElementById("video-image").classList.remove("blur");
+      document.getElementById("video-image").src = process.env.PUBLIC_URL + "/greetings/Your-Message.jpg";
       setGreetingText("");
 
 
@@ -113,64 +117,54 @@ const Hero = ({
   };
 
 
-  const { REACT_APP_DEFAULT_IMAGE } = process.env;
+
   const onSubmitClickHandler = event => {
     event.preventDefault();
-    setGreetingText(document.getElementById("greeting").value);
+
+    setGreetingText(event.target.value);
 
     const swiper = document.getElementById("swiperMain");
-    
+
     if (!swiper.classList.contains("hidden")) {
       swiper.classList.toggle("hidden");
     }
 
-    //check if the image is loaded with valid image
-    //if (document.getElementById("video-image").src !== "") {
-    //  document.getElementById("video-image").scrollIntoView({ behavior: "smooth" });
-    //  document.getElementById("video-image").classList.remove("blur");
-    //}
+    let currentInput = document.getElementById("greeting").value;
+    let greetingImage = process.env.PUBLIC_URL + `/greetings/${currentInput}.jpg`;
+    console.log(greetingImage);
 
-    // checkImage(document.getElementById("video-image").src).then(function (result) {
-    //   console.log("***" + result);
-    //   if (result) {
-    //     document.getElementById("video-image").scrollIntoView({ behavior: "smooth" });
-    //     document.getElementById("video-image").classList.remove("blur");
-    //   }else {
-    //     document.getElementById("video-image").classList.add("blur");
-        
-    //   }
 
-    // });
+    // assign and show the image, the OnError of Image will Handle No Image Found and use the default image 
+    document.getElementById("video-image").classList.remove("blur");
+    document.getElementById("video-image").src = greetingImage;
 
- 
-    //handle the case where the image is but NOT loaded/found
-    if (document.getElementById("video-image").src !== process.env.REACT_APP_DEFAULT_IMAGE) {
+    //show the download area
+    document.getElementById("checkout").style.display = "block";
 
-      document.getElementById("video-image").scrollIntoView({ behavior: "auto" });
-      document.getElementById("video-image").classList.remove("blur");
-
-      //show the download area
-      document.getElementById("checkout").style.display = "block";
-
-    } 
-
+    //scroll into view
+    document.getElementById("video-image").scrollIntoView({ behavior: "auto" });
 
 
   };
 
-  
 
 
 
 
 
-function handleGreetingNotFound(e) {
+  function handleGreetingNotFound(e) {
+    e.preventDefault();
+   
+    document.getElementById("cta").scrollIntoView({ behavior: "auto" });
+    document.getElementById("video-image").classList.add("blur");
+    document.getElementById("video-image").src = process.env.PUBLIC_URL + "/greetings/Your-Message.jpg";
     //hide the download area
     document.getElementById("checkout").style.display = "none";
-    document.getElementById("video-image").classList.add("blur");
-    document.getElementById("cta").scrollIntoView({ behavior: "auto" }); 
-  };
+    
+      
+      
 
+  }
 
   const [isLoading, setLoading] = useState(false);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -252,10 +246,10 @@ function handleGreetingNotFound(e) {
               <img
                 id="video-image"
                 className="has-shadow"
-                src={process.env.REACT_APP_DEFAULT_IMAGE}
+                src={DefaultImage}
                 alt="You message requires a custom sand greeting to be created. See the bottom of the page for more information."
                 disabled={isLoading}
-                //onLoad={() => { setLoading(false); }}
+                //onLoaded={(e) => { handleImageLoaded(e); }}
                 onError={(e) => { handleGreetingNotFound(e); }}
                 width={896}
                 height={504}

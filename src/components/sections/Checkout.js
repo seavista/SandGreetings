@@ -1,54 +1,9 @@
 import { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
-
-import CardIcon from "./../../assets/images/feature-tile-icon-01.svg";
+import { cleanInput } from '../../utils/ImageUtils';
 
 import ButtonGroup from '../elements/ButtonGroup';
 import Button from '../elements/Button';
-
-export function cleanInput(input) {
-  input = input.trim();
-  input = input.replaceAll(' ', '-');
-  input = input.replaceAll('/', '');
-  input = input.toLowerCase();
-  return input;
-}
-
-export function checkImageURL(URL) {
-
-  URL = cleanInput(URL);
-  console.log(URL);
-
-  if (URL === "") {
-    URL = 'your-message';
-  }
-
-  URL = process.env.PUBLIC_URL + `/greetings/${URL}.jpg`;
-  // URL = `/greetings/${URL}.jpg`;
-
-  fetch(URL)
-    .then((res) => {
-      console.log(res);
-      if (res.status == 404) {
-
-        console.log("Image not found at " + URL);
-        return false;
-      } else {
-
-        console.log(URL);
-        //{require('./../../assets/images/YourMessage.jpg')}
-
-        document.getElementById("video-image").src = URL;
-      }
-    })
-    .catch((err) => {
-
-      console.log("Image not found at " + URL);
-      return false;
-    });
-
-}
-
 
 let stripePromise;
 
@@ -138,7 +93,7 @@ const Checkout = (props) => {
       <div className="benefits">
         <h3>Print Quality Instant Download</h3>
 
-        <Button tag="a" color="primary" id="download-button" className="checkout-button hidden" key={checkImageURL(props.greeting)} onClick={redirectToCheckout} disabled={isLoading}>{isLoading ? "Loading..." : "Order Now"}</Button>
+        <Button tag="a" color="primary" id="download-button" className="checkout-button hidden"  onClick={redirectToCheckout} disabled={isLoading}>{isLoading ? "Loading..." : "Order Now"}</Button>
         <div className="checkout-benefit-group">
           <ul>
             <li>Instant Download</li>

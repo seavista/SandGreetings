@@ -14,9 +14,11 @@ const Logo = ({
   );
 
 
-  function onClickHandler(e) {
-    window.scrollTo(0, 0, { behavior: 'auto', block: 'start', inline: 'nearest', duration: 10, easing: 'easeInOutCubic' });
-  }
+function onClickHandler(e) {
+  e.preventDefault();
+  alert(e.target.id);
+}
+
 
   return (
     <div
@@ -25,14 +27,13 @@ const Logo = ({
     >
       <h1 className="m-5">
        
-        
+        <Link to="/">
           <Image
             src={require('./../../../assets/images/logo.png')}
             alt="Open"
             width={350}
-            height={150} 
-            onClick={onClickHandler} />
-       
+            height={150}  />
+        </Link>
        
       </h1>
     </div>
