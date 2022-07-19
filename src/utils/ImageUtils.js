@@ -2,7 +2,7 @@ export function cleanInput(input) {
   input = input.trim();
   input = input.replaceAll(' ', '-');
   input = input.replaceAll('/', '');
-  input = input.toLowerCase();
+  // ERROR CASE SENSITIVE ??? input = input.toLowerCase();
   return input;
 }
 
