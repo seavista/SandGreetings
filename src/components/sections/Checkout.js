@@ -27,14 +27,16 @@ const Checkout = (props) => {
   const item = {
     price: "price_1LLxsSAeKJvEg73w3lI9I3y9",
     quantity: 1,
-
+ 
   };
   const checkoutOptions = {
     lineItems: [item],
     mode: "payment",
     successUrl: `${window.location.origin}/sandgreetings/#/success?SessionId={CHECKOUT_SESSION_ID}`,
-    cancelUrl: `${window.location.origin}/sandgreetings/#/cancel?greeting=${props.greeting}`,
+    cancelUrl: `${window.location.origin}/sandgreetings/#/cancel?greeting=${cleanInput(props.greeting)}`,
     clientReferenceId: `${Date.now().toString()}|${props.greeting}`, //IMPORTANT: orderid|greetings this is the only passed value in Stripe Checkout
+   
+    //imageUrl: "https://stripe.com/img/documentation/checkout/marketplace.png",
     // lineItems: [
     //   {
     //     // price: process.env.PRICE,

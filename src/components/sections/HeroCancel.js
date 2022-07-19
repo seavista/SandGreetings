@@ -9,6 +9,7 @@ import Button from '../elements/Button';
 import Image from '../elements/Image';
 import Modal from '../elements/Modal';
 
+import DefaultImage from './../../assets/images/Your-Message.jpg';
 
 
 import Checkout from "./Checkout";
@@ -75,7 +76,7 @@ const HeroCancel = ({
   let URL = "";
 
   if (searchParams.get('greeting') !== null) {
-    let greeting = searchParams.get('greeting');
+    const greeting = searchParams.get('greeting');
 
     //process.env.PUBLIC_URL + `/greetings/${searchParams.get('greeting')}.jpg`
     URL = process.env.PUBLIC_URL + `/greetings/${searchParams.get('greeting')}.jpg`;
@@ -125,7 +126,7 @@ const HeroCancel = ({
             <img
               id="video-image"
               className="has-shadow blur"
-              src={require(process.env.REACT_APP_DEFAULT_IMAGE)}
+              src={DefaultImage}
               alt="You message requires a custom sand greeting to be created."
               disabled={isLoading}
               onLoad={imageLoaded()}
@@ -133,7 +134,7 @@ const HeroCancel = ({
               height={504} />
 
 
-            <Checkout greeting={greetingText} />
+            <Checkout greeting={searchParams.get('greeting')} />
 
           </div>
 
