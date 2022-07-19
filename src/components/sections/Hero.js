@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { SectionProps } from '../../utils/SectionProps';
 import { cleanInput } from '../../utils/ImageUtils';
@@ -59,6 +59,7 @@ const Hero = ({
 
   const [videoModalActive, setVideomodalactive] = useState(false);
   const [greetingText, setGreetingText] = useState("");
+ 
 
   const openModal = (e) => {
     e.preventDefault();
