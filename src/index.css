@@ -179,7 +179,7 @@ div.cta-action{
 div.cta-action input[type=text]{
   width: 100%;
   border: none;
-
+  
 
   font-weight: 600;
   background-color: transparent;
@@ -188,15 +188,10 @@ div.cta-action input[type=text]{
 
 }
 div.cta-action label{
-  font-size:0.65em;
+  font-size:0.75em;
 }
 
-div.cta-action svg{
-flex: content;
-width:50px;
-height:auto;
 
-}
 
 div.cta-action button{
   align-items: center;
@@ -208,6 +203,7 @@ div.cta-action button{
   font-size: 12px;
   font-weight: 600;
   width: 80%;
+  color:white;
 
 }
 

@@ -95,7 +95,7 @@ const Cta = ({
               <h1>Wow! You're an Original</h1>
 
               <h4 className="m-0">
-                Your message is new to our platform, it's now queued for creation. It will be ready for you to view soon.
+                Your message is new to our platform, it's now queued for creation by are artists.
               </h4>
 
               <h5 id="footerGreetingText"></h5>

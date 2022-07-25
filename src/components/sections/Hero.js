@@ -26,7 +26,7 @@ import { Pagination, Navigation } from "swiper";
 
 //no rt clicks
 window.oncontextmenu = function () {
-  //return false;
+  return false;
 };
 
 
@@ -198,7 +198,7 @@ const Hero = ({
 
 
             <div className="hero-input">
-              <form onSubmit={e => { e.preventDefault(); return false; }}>
+              <form onSubmit={e => { e.preventDefault();  }}>
 
                 <input className='greeting' maxLength={256} autoComplete="off" type="text" id="greeting" placeholder="Enter your greeting"  onChange={onChangeHandler} onKeyPress={onKeyPressHandler} />
                 <a color="primary" className="settings-button" onClick={onClickHandler}>
