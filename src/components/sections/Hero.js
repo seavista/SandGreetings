@@ -137,7 +137,6 @@ const Hero = ({
 
 
     // assign and show the image, the OnError of Image will Handle No Image Found and use the default image 
-    document.getElementById("video-image").classList.remove("blur");
     document.getElementById("video-image").src = greetingImage;
 
     //show the download area
@@ -153,6 +152,10 @@ const Hero = ({
   };
 
 
+  function onLoadStart() {
+    document.getElementById("video-image").classList.add("blur");
+  
+  }
 
 
 
@@ -161,7 +164,7 @@ const Hero = ({
     e.preventDefault();
    
     document.getElementById("cta").scrollIntoView({ behavior: "auto" });
-    document.getElementById("video-image").classList.add("blur");
+   // document.getElementById("video-image").classList.add("blur");
     document.getElementById("video-image").src = DefaultImage;
     //hide the download area
     document.getElementById("checkout").style.display = "none";
@@ -254,6 +257,7 @@ const Hero = ({
                 src={DefaultImage}
                 alt="You message requires a custom sand greeting to be created. See the bottom of the page for more information."
                 disabled={isLoading}
+                onLoadStart={onLoadStart}
                 onLoad={(e) => { document.getElementById('video-image').classList.remove("blur"); }}
                 onError={(e) => { handleGreetingNotFound(e); }}
                 width={896}
