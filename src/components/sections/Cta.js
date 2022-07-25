@@ -4,6 +4,8 @@ import classNames from 'classnames';
 import { SectionProps } from '../../utils/SectionProps';
 import Input from '../elements/Input';
 import Button from '../elements/Button';
+import Image from '../elements/Image';
+
 import { ContactUs } from './ContactUs';
 import emailjs from '@emailjs/browser';
 
@@ -75,7 +77,7 @@ const Cta = ({
 
   const onChangeEmail = event => {
 
-   // event.preventDefault();
+    // event.preventDefault();
     document.getElementById("sent_from").value = event.target.value;
   };
 
@@ -85,46 +87,49 @@ const Cta = ({
       {...props}
       className={outerClasses}
     >
-      <div className="container" id="cta">
-        <form ref={theForm} onSubmit={sendEmail}>
 
-          <div
-            className={innerClasses}
-          >
+
+      <form ref={theForm} onSubmit={sendEmail}>
+        <input type="hidden" name="user_name" value="Sand Greetings System" />
+        <input type="hidden" name="user_name" value="Sand Greetings System" />
+        <input type="hidden" name="sent_from" id="sent_from" />
+
+
+        <div className="container" id="cta">
+
+          <div className={innerClasses}>
+
             <div className="cta-slogan">
               <h1>Wow! You're an Original</h1>
 
-              <h4 className="m-0">
-                Your message is new to our platform, it's now queued for creation by are artists.
+              <h4 id="footerGreetingText">
+                <input type="text" name="message" id="message" />
               </h4>
 
-              <h5 id="footerGreetingText"></h5>
+              <h5 className="m-0">
+                is new to our platform, it's now queued for creation.  Enter your email address and we'll get started and let you know when it is ready.
+              </h5>
 
 
-
-              <h5>Enter your email address and we'll get started and let you know when it is ready.</h5>
 
             </div>
-            <div className="cta-action has-shadow">
-                 
-                  <label htmlFor="message">Below is Your New Sand Greeting Requested</label>
-                 <input type="text" name="message" id="message"  />
-         
-                 <input type="hidden" name="user_name" value="Sand Greetings System" />
-                 
-                 <input type="hidden" name="user_name" value="Sand Greetings System" />
-              
-                 <Input id="user_email" type="email" label="Subscribe" labelHidden hasIcon="right" placeholder="Your best email" onChange={onChangeEmail} />
-                 <input type="hidden" name="sent_from" id="sent_from" />
-              
+
+
+
+
+
+            <div id="formSuggestion" className="cta-action">
+              <Input id="newsletter" name="user_email" type="email" label="Subscribe" labelHidden hasIcon="right"  placeholder="Your best email" onChange={onChangeEmail} />
+              <Button className="btnSendSuggestion" onClick={sendEmail}>
+                SEND
+             </Button>
              
-                 <Button className="btn-primary" type="submit">Submit</Button>
-               
             </div>
-          </div>
 
-        </form>
-      </div>
+          </div>
+        </div>
+      </form>
+
     </section>
   );
 }

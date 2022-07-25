@@ -198,9 +198,9 @@ const Hero = ({
 
 
             <div className="hero-input">
-              <form onSubmit={e => { e.preventDefault();  }}>
+              <form onSubmit={e => { e.preventDefault(); return true;  }}>
 
-                <input className='greeting' maxLength={256} autoComplete="off" type="text" id="greeting" placeholder="Enter your greeting"  onChange={onChangeHandler} onKeyPress={onKeyPressHandler} />
+                <input className='greeting' maxLength={256} autoComplete="off" type="search" id="greeting" placeholder="Enter your greeting"  onChange={onChangeHandler} onKeyPress={onKeyPressHandler} />
                 <a color="primary" className="settings-button" onClick={onClickHandler}>
                   {/* <img src={require('./../../assets/images/settings.png')} /> */}
                   Options
