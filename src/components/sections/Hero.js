@@ -127,6 +127,9 @@ const Hero = ({
     //for the NOT Found submission form in CTA
     document.getElementById("message").value = document.getElementById("greeting").value;
 
+    //show the progress bar
+    document.getElementById("progressBar").classList.remove("hidden");
+
     const swiper = document.getElementById("swiperMain");
 
     if (!swiper.classList.contains("hidden")) {
@@ -154,16 +157,12 @@ const Hero = ({
 
   };
 
-
-  function onLoadStart() {
-    document.getElementById("video-image").classList.add("blur");
-    document.getElementById("progressBar").classList.remove("hidden");
-    
-  
-  }
+ 
 
 
-  function onLoadEnd() {
+  const onLoadEnd = event => {
+    console.log("onLoadEnd");
+
     document.getElementById("video-image").classList.remove("blur");
     document.getElementById("progressBar").classList.add("hidden");
   
@@ -174,7 +173,7 @@ const Hero = ({
     e.preventDefault();
    
     document.getElementById("cta").scrollIntoView({ behavior: "auto" });
-   // document.getElementById("video-image").classList.add("blur");
+  
     document.getElementById("video-image").src = DefaultImage;
     //hide the download area
     document.getElementById("checkout").style.display = "none";
@@ -205,7 +204,7 @@ const Hero = ({
 
 
             <div className="hero-input">
-              <form onSubmit={e => { e.preventDefault(); return true;  }}>
+              <form onSubmit={e => { e.preventDefault(); return false;  }}>
 
                 <input className='greeting' maxLength={256} autoComplete="off" type="search" id="greeting" placeholder="Enter your greeting"  onChange={onChangeHandler} onKeyPress={onKeyPressHandler} />
                 <a color="primary" className="settings-button" onClick={onClickHandler}>
@@ -268,8 +267,7 @@ const Hero = ({
                 src={DefaultImage}
                 alt="You message requires a custom sand greeting to be created. See the bottom of the page for more information."
                 disabled={isLoading}
-                onLoadStart={onLoadStart}
-                onLoad={ onLoadEnd }
+                onLoad={(e) => {onLoadEnd(e); }}
                 onError={(e) => { handleGreetingNotFound(e); }}
                 width={896}
                 height={504}
@@ -278,8 +276,8 @@ const Hero = ({
 
             </div>
 
-            <div id="progressBar" class="progress hidden">
-                  <div class="color"></div>
+            <div id="progressBar" className="progress">
+                  <div className="color"></div>
               </div>
 
             {/* <Modal

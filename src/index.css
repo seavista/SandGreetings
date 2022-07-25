@@ -207,7 +207,7 @@ align-items: center;
 
 .progress{
   position: absolute;
-  height: 30px;
+  height: 40px;
   width: 100%;
   top: (100vh / 2);
   right:50vw /1.5;
@@ -218,8 +218,8 @@ align-items: center;
   position: absolute;
   background-color: #ffffff;
   width: 0px;
-  height: 10px;
-  border-radius: 15px;
+  height: 20px;
+  border-radius: 0px;
   animation: progres 4s infinite linear;    
 }
 @keyframes progres{
