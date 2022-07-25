@@ -124,6 +124,9 @@ const Hero = ({
     document.getElementById("footerGreetingText").value = document.getElementById("greeting").value;
     setGreetingText(document.getElementById("greeting").value);
 
+    //for the NOT Found submission form in CTA
+    document.getElementById("message").value = document.getElementById("greeting").value;
+
     const swiper = document.getElementById("swiperMain");
 
     if (!swiper.classList.contains("hidden")) {

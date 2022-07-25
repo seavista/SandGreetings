@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { SectionProps } from '../../utils/SectionProps';
 import Input from '../elements/Input';
+import Button from '../elements/Button';
 import { ContactUs } from './ContactUs';
 import emailjs from '@emailjs/browser';
 
@@ -65,10 +66,19 @@ const Cta = ({
     emailjs.sendForm(process.env.REACT_APP_EMAILJS_SERVICE_ID, process.env.REACT_APP_EMAILJS_TEMPLATE_ID, theForm.current, process.env.REACT_APP_EMAILJS_PUBLIC_KEY)
       .then((result) => {
         console.log(result.text);
+        //show success message
+        alert("Thank you for your request. We will be in touch with you shortly.");
       }, (error) => {
         console.log(error.text);
       });
   };
+
+  const onChangeEmail = event => {
+
+   // event.preventDefault();
+    document.getElementById("sent_from").value = event.target.value;
+  };
+
 
   return (
     <section
@@ -92,18 +102,24 @@ const Cta = ({
 
 
 
-              <h5>Enter your email address and we'll let you know when it is ready.</h5>
+              <h5>Enter your email address and we'll get started and let you know when it is ready.</h5>
 
             </div>
-            <div className="cta-action">
-              <input type="hidden" name="user_name" value="Sand Greetings System" />
-              <input type="text" name="message" />
-              <Input id="user_email" type="email" label="Subscribe" labelHidden hasIcon="right" placeholder="Your best email" />
-              <input type="submit" value="Send" />
-              <svg width="16" height="12" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9 5H1c-.6 0-1 .4-1 1s.4 1 1 1h8v5l7-6-7-6v5z" fill="#376DF9" />
-              </svg>
-
+            <div className="cta-action has-shadow">
+                 
+                  <label htmlFor="message">Below is Your New Sand Greeting Requested</label>
+                 <input type="text" name="message" id="message"  />
+         
+                 <input type="hidden" name="user_name" value="Sand Greetings System" />
+                 
+                 <input type="hidden" name="user_name" value="Sand Greetings System" />
+              
+                 <Input id="user_email" type="email" label="Subscribe" labelHidden hasIcon="right" placeholder="Your best email" onChange={onChangeEmail} />
+                 <input type="hidden" name="sent_from" id="sent_from" />
+              
+             
+                 <Button className="btn-primary" type="submit">Submit</Button>
+               
             </div>
           </div>
 

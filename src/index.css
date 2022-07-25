@@ -163,3 +163,51 @@ div.footer-copyright a {
 	  flex-grow:2;
 	 
 }
+
+div.cta-action{
+  display:flexbox;
+  flex-direction:row;
+  align-items: center;
+  justify-content: center;
+  background-color: #28B2D2;
+  color:white;
+  padding:10px;
+  text-align: center;
+
+}
+
+div.cta-action input[type=text]{
+  width: 100%;
+  border: none;
+
+
+  font-weight: 600;
+  background-color: transparent;
+  color:white;
+  text-align: center;
+
+}
+div.cta-action label{
+  font-size:0.65em;
+}
+
+div.cta-action svg{
+flex: content;
+width:50px;
+height:auto;
+
+}
+
+div.cta-action button{
+  align-items: center;
+ padding:10px;
+ margin:10px 0px;
+  border-radius: 30px;
+  background-color: #6163FF;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  width: 80%;
+
+}
+
