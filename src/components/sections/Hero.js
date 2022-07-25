@@ -157,10 +157,17 @@ const Hero = ({
 
   function onLoadStart() {
     document.getElementById("video-image").classList.add("blur");
+    document.getElementById("progressBar").classList.remove("hidden");
+    
   
   }
 
 
+  function onLoadEnd() {
+    document.getElementById("video-image").classList.remove("blur");
+    document.getElementById("progressBar").classList.add("hidden");
+  
+  }
 
 
   function handleGreetingNotFound(e) {
@@ -253,7 +260,8 @@ const Hero = ({
 
 
             <div className="hero-figure reveal-from-bottom illustration-element-01" data-reveal-value="20px" data-reveal-delay="800">
-
+          
+              
               <img
                 id="video-image"
                 className="has-shadow blur"
@@ -261,7 +269,7 @@ const Hero = ({
                 alt="You message requires a custom sand greeting to be created. See the bottom of the page for more information."
                 disabled={isLoading}
                 onLoadStart={onLoadStart}
-                onLoad={(e) => { document.getElementById('video-image').classList.remove("blur"); }}
+                onLoad={ onLoadEnd }
                 onError={(e) => { handleGreetingNotFound(e); }}
                 width={896}
                 height={504}
@@ -269,6 +277,10 @@ const Hero = ({
 
 
             </div>
+
+            <div id="progressBar" class="progress hidden">
+                  <div class="color"></div>
+              </div>
 
             {/* <Modal
             id="video-modal"
