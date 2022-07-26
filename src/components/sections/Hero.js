@@ -26,7 +26,7 @@ import { Pagination, Navigation } from "swiper";
 
 //no rt clicks
 window.oncontextmenu = function () {
- // return false;
+ return false;
 };
 
 
