@@ -77,13 +77,13 @@ const Header = ({
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/firebase.User
       const uid = user.uid;
-      document.getElementById('btnLogin').innerHTML = 'Sign Out';
+      //document.getElementById('btnLogin').innerHTML = 'Sign Out';
       // ...
     } else {
       console.log('User is signed out');
       // User is signed out
       // ...
-      document.getElementById('btnLogin').innerHTML = 'Sign In';
+      //document.getElementById('btnLogin').innerHTML = 'Sign In';
 
 
 
@@ -157,6 +157,16 @@ const Header = ({
   );
 
 
+   const getUserName  = () => {
+    
+
+    if(localStorage.getItem('customerName')){
+      return "Welcome Back, " + localStorage.getItem('customerName');
+    }else{
+      return '';
+    }
+  };
+
 
   return (
 
@@ -199,14 +209,18 @@ const Header = ({
                       navPosition && `header-nav-${navPosition}`
                     )}>
                     <li>
-                      <Link to="" onClick={closeMenu}>How it Works</Link>
+                      <Link to="./" onClick={closeMenu}>{getUserName()}</Link>
                     </li>
                   </ul>
                   {!hideSignin &&
                     <ul className="list-reset header-nav-right">
-                      <li>
+                      {/* <li>
                        
                         <Button id="btnLogin"  className="button button-primary button-wide-mobile button-sm" onClick={auth.isActive ? signOut : signIn }>{auth.isActive ? "Sign Out" : "Sign In"}</Button>
+                      </li> */}
+                      <li>
+                          <a id="btnDownload"  className="button button-primary button-wide-mobile button-sm" href={localStorage.getItem("orderPageURL") ? localStorage.getItem("orderPageURL") : "./"} >{localStorage.getItem("orderPageURL") ? "Dashboard" : "No Downloads" }</a>
+                        
                       </li>
                     </ul>}
                 </div>

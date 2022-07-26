@@ -84,8 +84,17 @@ const loadOrderDetails = async () => {
 
   //set the customer name
   let customerName = json.customer_details.name;
+  console.log(json.customer_details);
   document.getElementById("customerName").innerHTML = customerName;
 
+//write info to local storage
+  localStorage.setItem("orderId", orderId);
+  localStorage.setItem("greetingId", greetingId);
+  localStorage.setItem("customerName", customerName);
+  localStorage.setItem("greetingImage", greetingImage);
+  localStorage.setItem("orderPageURL", window.location.href);
+  
+  //Send confirmation email only first time
 
  
 

@@ -55,7 +55,7 @@ const HeroSuccess = ({
             <h3><span id="customerName"></span> - Order # <span id="orderNumber">*</span></h3>
 
             <Button download id="downloadLink"  tag="a" color="primary"  className="button primary">Download Image</Button> 
-          
+         
           
           </div>
 
