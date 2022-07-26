@@ -25,6 +25,7 @@ const stripe = getStripe();
 
 function cleanInput(input) {
   input = input.trim();
+  input = input.toLowerCase();
   input = input.replaceAll(' ', '-');
   input = input.replaceAll('/', '');
   return input;
