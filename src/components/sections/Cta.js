@@ -120,7 +120,7 @@ const Cta = ({
 
             <div id="formSuggestion" className="cta-action">
               <Input name="user_email" id="user_email" type="email" label="Subscribe" labelHidden hasIcon="right"  placeholder="Your best email" onChange={onChangeEmail} />
-              <Button type="submit" className="btnSendSuggestion" onSubmit={sendEmail}>
+              <Button type="submit" id="btnSendSuggestion" className="btnSendSuggestion" onSubmit={sendEmail}>
                 SEND
              </Button>
              
