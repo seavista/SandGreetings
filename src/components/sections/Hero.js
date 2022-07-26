@@ -29,9 +29,7 @@ window.oncontextmenu = function () {
   return false;
 };
 
-window.onload = function () {
-  document.getElementById("cta").classList.add("hidden");
-}
+
 
 const propTypes = {
   ...SectionProps.types
@@ -157,7 +155,7 @@ const Hero = ({
     //scroll into view
     //console.log(event.target);
     if(event.target.id === 'greeting' || event.type === 'blur'){
-      document.getElementById("video-image").scrollIntoView({ behavior: "auto" });
+      document.getElementById("video-image").scrollIntoView({ behavior:"auto" });
       document.getElementById("cta").classList.add("hidden");
       document.getElementById("greeting").blur();
     }

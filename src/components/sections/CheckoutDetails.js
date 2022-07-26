@@ -55,19 +55,22 @@ const loadOrderDetails = async () => {
     },
   });
   const json = await data.json();
-  console.log(json);
+  //console.log(json);
 
   //this is the data passed into Stripe Checkout.  Note: metadata fields are NOT passed into Stripe Checkout
   const sessionClientReferenceId = json.client_reference_id;
-  console.log(sessionClientReferenceId);
+  //console.log(sessionClientReferenceId);
 
   //split the client reference id into greeting and order id
   orderId = sessionClientReferenceId.split("|")[0];
+  console.log("Order Id: "+orderId);
   greetingId = sessionClientReferenceId.split("|")[1];
+  console.log("Greeting: " + greetingId);
+
   document.getElementById("orderNumber").innerHTML = orderId;
 
   //set the path to iamge from greeting name
-  greetingImage = `${window.location.origin}/sandgreetings/greetings/${greetingId}.jpg`;
+  greetingImage = `./greetings/${cleanInput(greetingId)}.jpg`;
   
   console.log(greetingImage);
   document.getElementById("video-image").src = greetingImage;
