@@ -105,7 +105,8 @@ div.benefits ul li:before {
 
 a.search-button {
   border-radius: 0px 30px 30px 0px;
-  display: none;
+  background-color: #28B2D2;
+
 }
 
 
@@ -137,7 +138,7 @@ div.swiper-slide img {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border-radius: 15%;
+  border-radius: 0%;
 
 }
 
@@ -205,45 +206,6 @@ vertical-align: middle;
 align-items: center;
 }
 
-.progress{
-  position: absolute;
-  height: 40px;
-  width: 100%;
-  top: (100vh / 2);
-  right:50vw /1.5;
-  border: 8px solid #28B2D2;
-  border-radius: 0px 0px 30px 30px;
-  opacity: 0.75;
-}
-.progress .color{
-  position: absolute;
-  background-color: #ffffff;
-  width: 0px;
-  height: 25px;
-  border-radius: 0px 0px 0px 30px;
-  animation: progres 4s infinite linear;    
-}
-@keyframes progres{
-  0%{
-    width: 0%;
-    transform: translateX(0);
-  }
-  25%{
-      width: 50%;
-      transform: translateX(25);
-  }
-  50%{
-      width: 75%;
-      transform: translateX(50);
-  }
-  75%{
-      width: 85%;
-      transform: translateX(85);
-  }
-  100%{
-      width: 100%;
-      transform: translateX(100);
-  }
-};
+
 
 

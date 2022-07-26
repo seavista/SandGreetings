@@ -107,7 +107,7 @@ const Cta = ({
               </h4>
 
               <h5 className="m-0">
-                is new to our platform, it's now queued for creation.  Enter your email address and we'll get started and let you know when it is ready.
+                is new to our platform, it's now queued for creation.  Enter your email address and we'll create your FREE preview and let you know when it is ready.
               </h5>
 
 
