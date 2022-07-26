@@ -158,7 +158,8 @@ const Hero = ({
     //console.log(event.target);
     if(event.target.id === 'greeting' || event.type === 'blur'){
       document.getElementById("video-image").scrollIntoView({ behavior: "auto" });
-      
+      document.getElementById("cta").classList.add("hidden");
+      document.getElementById("greeting").blur();
     }
     
 
@@ -185,6 +186,7 @@ const Hero = ({
    
     document.getElementById("cta").classList.remove("hidden");
     document.getElementById("cta").scrollIntoView({ behavior: "auto" });
+    document.getElementById("greeting").blur();
 
   
     document.getElementById("video-image").src = DefaultImage;
