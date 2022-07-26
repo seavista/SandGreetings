@@ -29,7 +29,9 @@ window.oncontextmenu = function () {
   return false;
 };
 
-
+window.onload = function () {
+  document.getElementById("cta").classList.add("hidden");
+}
 
 const propTypes = {
   ...SectionProps.types
@@ -129,6 +131,10 @@ const Hero = ({
 
     //show the progress bar
     document.getElementById("progressBar").classList.remove("hidden");
+    
+    //hide the not cta form
+    document.getElementById("cta").classList.add("hidden");
+  
 
     const swiper = document.getElementById("swiperMain");
 
@@ -152,6 +158,7 @@ const Hero = ({
     //console.log(event.target);
     if(event.target.id === 'greeting' || event.type === 'blur'){
       document.getElementById("video-image").scrollIntoView({ behavior: "auto" });
+      
     }
     
 
@@ -161,18 +168,24 @@ const Hero = ({
 
 
   const onLoadEnd = event => {
+    event.preventDefault();
     console.log("onLoadEnd");
 
     document.getElementById("video-image").classList.remove("blur");
     document.getElementById("progressBar").classList.add("hidden");
-  
+    
+   
   }
 
 
   function handleGreetingNotFound(e) {
     e.preventDefault();
    
+  
+   
+    document.getElementById("cta").classList.remove("hidden");
     document.getElementById("cta").scrollIntoView({ behavior: "auto" });
+
   
     document.getElementById("video-image").src = DefaultImage;
     //hide the download area
@@ -186,6 +199,7 @@ const Hero = ({
   const [isLoading, setLoading] = useState(false);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
+  
 
   return (
 
