@@ -26,7 +26,7 @@ import { Pagination, Navigation } from "swiper";
 
 //no rt clicks
 window.oncontextmenu = function () {
-  return false;
+ // return false;
 };
 
 
@@ -59,7 +59,7 @@ const Hero = ({
 
   const [videoModalActive, setVideomodalactive] = useState(false);
   const [greetingText, setGreetingText] = useState("");
- 
+
 
   const openModal = (e) => {
     e.preventDefault();
@@ -91,13 +91,14 @@ const Hero = ({
 
     //hide the download area until submit on change
     document.getElementById("checkout").style.display = "none";
-
+    
     if (event.target.value.length > 0) {
       document.getElementById("video-image").classList.add("blur");
     } else {
-      document.getElementById("video-image").classList.remove("blur");
+      
       setGreetingText("");
-
+      handleGreetingNotFound(event);
+      //document.getElementById("video-image").classList.remove("blur");
 
     }
   };
@@ -111,10 +112,6 @@ const Hero = ({
   };
 
 
-  const onClickHandler = event => {
-    event.preventDefault();
-    document.getElementById("swiperMain").classList.toggle("hidden");
-  };
 
 
 
@@ -127,24 +124,13 @@ const Hero = ({
     //for the NOT Found submission form in CTA
     document.getElementById("message").value = document.getElementById("greeting").value;
 
-    //show the progress bar
-    document.getElementById("progressBar").classList.remove("hidden");
-    
+   
     //hide the not cta form
     document.getElementById("cta").classList.add("hidden");
-  
-
-    const swiper = document.getElementById("swiperMain");
-
-    if (!swiper.classList.contains("hidden")) {
-      swiper.classList.toggle("hidden");
-    }
 
     let currentInput = cleanInput(document.getElementById("greeting").value);
-   
-    let greetingImage = process.env.PUBLIC_URL + `/greetings/${currentInput}.jpg`;
-  
 
+    let greetingImage = process.env.PUBLIC_URL + `/greetings/${currentInput}.jpg`;
 
     // assign and show the image, the OnError of Image will Handle No Image Found and use the default image 
     document.getElementById("video-image").src = greetingImage;
@@ -153,53 +139,53 @@ const Hero = ({
     document.getElementById("checkout").style.display = "block";
 
     //scroll into view
-    //console.log(event.target);
-    if(event.target.id === 'greeting' || event.type === 'blur'){
-      document.getElementById("video-image").scrollIntoView({ behavior:"auto" });
+    console.log(event.target.value);
+       
+      
+      if(document.getElementById("video-image").src != DefaultImage) {
+          document.getElementById("video-image").scrollIntoView({ behavior: "auto" });
+        }
+     
+
       document.getElementById("cta").classList.add("hidden");
       document.getElementById("greeting").blur();
-    }
-    
+
+
 
   };
 
- 
+
 
 
   const onLoadEnd = event => {
-    event.preventDefault();
-    console.log("onLoadEnd");
-
+  
     document.getElementById("video-image").classList.remove("blur");
-    document.getElementById("progressBar").classList.add("hidden");
-    
-   
+
+
+
   }
 
 
   function handleGreetingNotFound(e) {
-    e.preventDefault();
-   
-  
-   
+   e.preventDefault();
+
+
     document.getElementById("cta").classList.remove("hidden");
     document.getElementById("cta").scrollIntoView({ behavior: "auto" });
-    document.getElementById("greeting").blur();
 
-  
+
     document.getElementById("video-image").src = DefaultImage;
     //hide the download area
     document.getElementById("checkout").style.display = "none";
-    
-      
-      
+
+   
 
   }
 
   const [isLoading, setLoading] = useState(false);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
-  
+
 
   return (
 
@@ -218,81 +204,55 @@ const Hero = ({
 
 
             <div className="hero-input">
-              <form onSubmit={e => { e.preventDefault(); return false;  }}>
+              <form onSubmit={e => { e.preventDefault(); return false; }}>
 
-                <input className='greeting' maxLength={256} autoComplete="off" type="search" id="greeting" placeholder="Enter your greeting"  onChange={onChangeHandler} onKeyPress={onKeyPressHandler} />
-                <a color="primary" className="settings-button" onClick={onClickHandler}>
-                  {/* <img src={require('./../../assets/images/settings.png')} /> */}
-                  Options
-                </a>
+                <input className='greeting' maxLength={256} autoComplete="off" type="search" id="greeting" placeholder="Enter your greeting" onChange={onChangeHandler} onKeyPress={onKeyPressHandler} />
+
                 <Button tag="a" type="submit" color="primary" className="search-button" onClick={onSubmitClickHandler} disabled={isLoading}>{isLoading ? "Loading..." : "?"}</Button>
               </form>
             </div>
 
             <Swiper
               id="swiperMain"
-              loop={true}
+              loop={false}
               navigation={true}
               pagination={true}
               spaceBetween={10}
               slidesPerView={1}
               freeMode={false}
+              
               watchSlidesProgress={true}
               modules={[Pagination, Navigation]}
-              className="mySwiper hidden"
+              className="mySwiper has-shadow"
             >
-              <h5>Select Your Scene</h5>
+              <h5>Choose a Beach Scene</h5>
 
               <SwiperSlide>
-                <img src={require('./../../assets/images/scene-1.jpg')} />
+                <img
+                  id="video-image"
+                  className=""
+                  src={DefaultImage}
+                  alt="You message requires a custom sand greeting to be created. See the bottom of the page for more information."
+                  disabled={isLoading}
+                  onLoad={(e) => { onLoadEnd(e); }}
+                  onError={(e) => { handleGreetingNotFound(e); }}
+                  width={896}
+                  height={504}
+                />
+             
               </SwiperSlide>
               <SwiperSlide>
                 <img src={require('./../../assets/images/scene-2.jpg')} />
               </SwiperSlide>
-              <SwiperSlide>
-                <img src={require('./../../assets/images/scene-1.jpg')} />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={require('./../../assets/images/scene-2.jpg')} />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={require('./../../assets/images/scene-1.jpg')} />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={require('./../../assets/images/scene-2.jpg')} />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={require('./../../assets/images/scene-1.jpg')} />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={require('./../../assets/images/scene-2.jpg')} />
-              </SwiperSlide>
+          
 
 
             </Swiper>
 
 
-            <div className="hero-figure reveal-from-bottom illustration-element-01" data-reveal-value="20px" data-reveal-delay="800">
-          
-              
-              <img
-                id="video-image"
-                className="has-shadow blur"
-                src={DefaultImage}
-                alt="You message requires a custom sand greeting to be created. See the bottom of the page for more information."
-                disabled={isLoading}
-                onLoad={(e) => {onLoadEnd(e); }}
-                onError={(e) => { handleGreetingNotFound(e); }}
-                width={896}
-                height={504}
-              />
 
 
-            </div>
-
-            <div id="progressBar" className="progress">
-                  <div className="color"></div>
-              </div>
+            
 
             {/* <Modal
             id="video-modal"
