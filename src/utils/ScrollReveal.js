@@ -17,7 +17,9 @@ const ScrollReveal = React.forwardRef((props, ref) => {
   };
 
   const revealElements = () => {
+    
     if (checkComplete()) return;
+
     for (let i = 0; i < revealEl.length; i++) {
       let el = revealEl[i];
       let revealDelay = el.getAttribute('data-reveal-delay');

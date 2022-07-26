@@ -206,16 +206,16 @@ const Hero = ({
             <div className="hero-input">
               <form onSubmit={e => { e.preventDefault(); return false; }}>
 
-                <input className='greeting' maxLength={256} autoComplete="off" type="search" id="greeting" placeholder="Enter your greeting" onChange={onChangeHandler} onKeyPress={onKeyPressHandler} />
+                <input className='greeting' maxLength={256} autoComplete="off" type="search" id="greeting" placeholder="Enter your name, greeting..." onChange={onChangeHandler} onKeyPress={onKeyPressHandler} />
 
-                <Button tag="a" type="submit" color="primary" className="search-button" onClick={onSubmitClickHandler} disabled={isLoading}>{isLoading ? "Loading..." : "?"}</Button>
+                <Button tag="a" type="submit" color="primary" className="search-button" onClick={onSubmitClickHandler} disabled={isLoading}>{isLoading ? "Loading..." : "Go"}</Button>
               </form>
             </div>
 
             <Swiper
               id="swiperMain"
               loop={false}
-              navigation={true}
+              navigation={false}
               pagination={true}
               spaceBetween={10}
               slidesPerView={1}
@@ -225,7 +225,7 @@ const Hero = ({
               modules={[Pagination, Navigation]}
               className="mySwiper has-shadow"
             >
-              <h5>Choose a Beach Scene</h5>
+              <h5>Swipe to Choose</h5>
 
               <SwiperSlide>
                 <img
