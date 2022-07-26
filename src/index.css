@@ -213,6 +213,7 @@ align-items: center;
   right:50vw /1.5;
   border: 8px solid #28B2D2;
   border-radius: 0px 0px 30px 30px;
+  opacity: 0.75;
 }
 .progress .color{
   position: absolute;
@@ -225,18 +226,23 @@ align-items: center;
 @keyframes progres{
   0%{
     width: 0%;
+    transform: translateX(0);
   }
   25%{
       width: 50%;
+      transform: translateX(25);
   }
   50%{
       width: 75%;
+      transform: translateX(50);
   }
   75%{
       width: 85%;
+      transform: translateX(85);
   }
   100%{
       width: 100%;
+      transform: translateX(100);
   }
 };
 
