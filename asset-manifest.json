@@ -1,11 +1,10 @@
 {
   "files": {
-    "main.css": "/sandgreetings/static/css/main.094b4cb6.css",
-    "main.js": "/sandgreetings/static/js/main.b41109db.js",
+    "main.css": "/sandgreetings/static/css/main.7717a0f3.css",
+    "main.js": "/sandgreetings/static/js/main.a6175b6c.js",
     "static/media/Your-Message.jpg": "/sandgreetings/static/media/Your-Message.1a06d76ce69b7a3e953e.jpg",
-    "static/media/scene-1.jpg": "/sandgreetings/static/media/scene-1.45cc7409382ac2fdd0c1.jpg",
+    "static/media/scene-2.jpg": "/sandgreetings/static/media/scene-2.0e244e4833d2e54096e8.jpg",
     "static/media/Accesories.png": "/sandgreetings/static/media/Accesories.8e583b48735fd25dd469.png",
-    "static/media/scene-2.jpg": "/sandgreetings/static/media/scene-2.6ad58b958acb91a15bd3.jpg",
     "static/media/card.png": "/sandgreetings/static/media/card.fd5d11349308fa6f7187.png",
     "static/media/framed.png": "/sandgreetings/static/media/framed.02f392f8a34f06e1560b.png",
     "static/media/illustration-section-01.svg": "/sandgreetings/static/media/illustration-section-01.980998916c8e9369ffab.svg",
@@ -19,11 +18,11 @@
     "static/media/feature-tile-icon-04.svg": "/sandgreetings/static/media/feature-tile-icon-04.78f92ee86730e1ca3255544386a21e0a.svg",
     "static/media/feature-tile-icon-05.svg": "/sandgreetings/static/media/feature-tile-icon-05.7384a98493328cd0c741b4ff2eaf25e3.svg",
     "index.html": "/sandgreetings/index.html",
-    "main.094b4cb6.css.map": "/sandgreetings/static/css/main.094b4cb6.css.map",
-    "main.b41109db.js.map": "/sandgreetings/static/js/main.b41109db.js.map"
+    "main.7717a0f3.css.map": "/sandgreetings/static/css/main.7717a0f3.css.map",
+    "main.a6175b6c.js.map": "/sandgreetings/static/js/main.a6175b6c.js.map"
   },
   "entrypoints": [
-    "static/css/main.094b4cb6.css",
-    "static/js/main.b41109db.js"
+    "static/css/main.7717a0f3.css",
+    "static/js/main.a6175b6c.js"
   ]
 }
