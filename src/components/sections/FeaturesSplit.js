@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { SectionSplitProps } from '../../utils/SectionProps';
 import SectionHeader from './partials/SectionHeader';
 import Image from '../elements/Image';
+import Button from '../elements/Button';
 
 const propTypes = {
   ...SectionSplitProps.types
@@ -62,22 +63,25 @@ const FeaturesSplit = ({
       <div className="container">
         <div className={innerClasses}>
           <SectionHeader data={sectionHeader} className="center-content" />
-          
+
           <div className={splitClasses}>
 
-        
+
 
             <div className="split-item">
               <div className="split-item-content center-content-mobile reveal-from-left" data-reveal-container=".split-item">
                 <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
                   Lightning Fast Turn around
-                  </div>
+                </div>
                 <h3 className="mt-0 mb-12">
                   Greeting Cards
-                  </h3>
+                </h3>
                 <p className="m-0">
-                    Custom sand greeting cards make great thank you cards, announcements or personal stationery. Personalized cards allow you to send meaningful and memorable notes to your friends and family.
-                  </p>
+                  Custom sand greeting cards make great thank you cards, announcements or personal stationery. Personalized cards allow you to send meaningful and memorable notes to your friends and family.
+                </p>
+                <div className='center-content mt-32'>
+                  <Button tag="a" color="primary" className="checkout-button">Order Now</Button>
+                </div>
               </div>
               <div className={
                 classNames(
@@ -98,12 +102,17 @@ const FeaturesSplit = ({
               <div className="split-item-content center-content-mobile reveal-from-right" data-reveal-container=".split-item">
                 <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
                   Lightning fast workflow
-                  </div>
+                </div>
                 <h3 className="mt-0 mb-12">
                   Metal Prints
-                  </h3>
+                </h3>
                 <p className="m-0">
-                    Custom metal print wall artwork adds character to your home or office and make ideal gifts for friends and family. Transform your Sand Greeting into custom prints and personalized work of art.                  </p>
+                  Custom metal print wall artwork adds character to your home or office and make ideal gifts for friends and family. Transform your Sand Greeting into custom prints and personalized work of art.
+                </p>
+                <div className='center-content mt-32'>
+                  <Button tag="a" color="primary" className="checkout-button">Order Now</Button>
+                </div>
+
               </div>
               <div className={
                 classNames(
@@ -112,7 +121,7 @@ const FeaturesSplit = ({
                 )}
                 data-reveal-container=".split-item">
                 <Image
-                  src={require('./../../assets/images/framed.png')}
+                  src="https://printful-upload.s3-accelerate.amazonaws.com/tmp/6f1f2d4fb183b45823f0b5690d60f7f9/greeting-card-4x6-front-62e1918e4030a.png"
                   alt="Features split 02"
                   className={"has-shadow"}
                   width={528}
@@ -124,13 +133,16 @@ const FeaturesSplit = ({
               <div className="split-item-content center-content-mobile reveal-from-left" data-reveal-container=".split-item">
                 <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
                   Lightning fast workflow
-                  </div>
+                </div>
                 <h3 className="mt-0 mb-12">
                   And So Much More...
-                  </h3>
+                </h3>
                 <p className="m-0">
                   Sand Greetings are perfect way to send a memorable message to your friends and family. Use your Sand Greeting to create a beautiful gift that will be cherished for years to come.
-                  </p>
+                </p>
+                <div className='center-content mt-32'>
+                  <Button tag="a" color="primary" className="checkout-button">Order Now</Button>
+                </div>
               </div>
               <div className={
                 classNames(

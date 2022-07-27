@@ -28,20 +28,44 @@ const trackPage = page => {
 Buffer.from("anything", "base64");
 window.Buffer = window.Buffer || require("buffer").Buffer;
 
-const printful = new PrintfulClient(process.env.REACT_APP_PRINTFUL_KEY,{
-  //baseUrl: "https://api.printful.com/",
- timeout: 10000,
-  headers: {
-    "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "https://seavista.github.io",
-    "Accept": "application/json",
-   // "Authorization": `Bearer ${Buffer.from(`${process.env.REACT_APP_PRINTFULL_TOKEN}:`).toString("base64")}`
-  }
+// const printful = new PrintfulClient(process.env.REACT_APP_PRINTFUL_KEY,{
+//  baseUrl: "https://api.printful.com/",
+//  timeout: 10000,
+//   headers: {
+//     "Content-Type": "application/json",
+//     "Host": "https://api.printful.com/",
+//     "Access-Control-Allow-Origin": "*",
+//     "Accept": "application/json",
+//     "X-PF-Store-Id": "8121581",
+//     "Authorization": `Bearer ${process.env.REACT_APP_PRINTFUL_TOKEN}`
+//   }
 
-});
+// });
+// printful.get("orders").then(({ result }) => console.log(result));
+
+//Printful CLient
+ fetch("https://api.printful.com/mockup-generator/printfiles/568", 
+ {
+  method: "GET",
+  mode: "no-cors",
+  headers: 
+    {
+      "Content-Type": "application/json",
+      "Host": "https://api.printful.com/",
+      "Access-Control-Allow-Origin": "*",
+      "Accept": "application/json",
+      "X-PF-Store-Id": "8524515",
+      "Authorization": `Bearer ${process.env.REACT_APP_PRINTFUL_TOKEN}`
+    }
+  })
+  .then(res => {return res.text()})
+  .then(data => console.log(data))
+  .catch(err => console.log(err));
 
 
-printful.get("orders").then(({ result }) => console.log(result));
+
+
+
 
 
 const App = () => {
