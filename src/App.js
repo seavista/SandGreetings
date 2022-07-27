@@ -29,14 +29,13 @@ Buffer.from("anything", "base64");
 window.Buffer = window.Buffer || require("buffer").Buffer;
 
 const printful = new PrintfulClient(process.env.REACT_APP_PRINTFUL_KEY,{
-  baseUrl: "https://api.printful.com/",
-  timeout: 10000,
-  mode: "no-cors",
+  //baseUrl: "https://api.printful.com/",
+ timeout: 10000,
   headers: {
     "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Origin": "https://seavista.github.io",
     "Accept": "application/json",
-    "Authorization": `Basic ${Buffer.from(`${process.env.REACT_APP_PRINTFUL_KEY}:`).toString("base64")}`
+   // "Authorization": `Bearer ${Buffer.from(`${process.env.REACT_APP_PRINTFULL_TOKEN}:`).toString("base64")}`
   }
 
 });
