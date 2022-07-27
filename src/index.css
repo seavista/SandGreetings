@@ -112,10 +112,12 @@ a.search-button {
 }
 
 
+  
 a.checkout-button {
   border-radius: 30px;
   width: 50%;
   margin-bottom: 30px;
+  background-color: #6163FF;
 
 }
 

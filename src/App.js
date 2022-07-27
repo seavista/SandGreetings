@@ -12,6 +12,9 @@ import LayoutDefault from './layouts/LayoutDefault';
 import Home from './views/Home';
 import { FaThemeisle } from 'react-icons/fa';
 
+import { PrintfulClient, request } from 'printful-request';
+import { Buffer } from "buffer";
+
 // Initialize Google Analytics
 ReactGA.initialize(process.env.REACT_APP_GA_CODE);
 
@@ -19,6 +22,27 @@ const trackPage = page => {
   ReactGA.set({ page });
   ReactGA.pageview(page);
 };
+
+
+
+Buffer.from("anything", "base64");
+window.Buffer = window.Buffer || require("buffer").Buffer;
+
+const printful = new PrintfulClient(process.env.REACT_APP_PRINTFUL_KEY,{
+  baseUrl: "https://api.printful.com/",
+  timeout: 10000,
+  mode: "no-cors",
+  headers: {
+    "Content-Type": "application/json",
+    "Access-Control-Allow-Origin": "*",
+    "Accept": "application/json",
+    "Authorization": `Basic ${Buffer.from(`${process.env.REACT_APP_PRINTFUL_KEY}:`).toString("base64")}`
+  }
+
+});
+
+
+printful.get("orders").then(({ result }) => console.log(result));
 
 
 const App = () => {

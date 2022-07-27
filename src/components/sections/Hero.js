@@ -225,7 +225,7 @@ const Hero = ({
               modules={[Pagination, Navigation]}
               className="mySwiper has-shadow"
             >
-              <h5>Swipe to Choose</h5>
+              <h5>Swipe to Choose Scene</h5>
 
               <SwiperSlide>
                 <img

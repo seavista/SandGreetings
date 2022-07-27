@@ -95,7 +95,7 @@ const Checkout = (props) => {
       <div className="benefits">
         <h3>Print Quality Instant Download</h3>
 
-        <Button tag="a" color="primary" id="download-button" className="checkout-button hidden"  onClick={redirectToCheckout} disabled={isLoading}>{isLoading ? "Loading..." : "Order Now"}</Button>
+        <Button tag="a" color="secondary" id="download-button" className="checkout-button hidden"  onClick={redirectToCheckout} disabled={isLoading}>{isLoading ? "Loading..." : "Order Now"}</Button>
         <div className="checkout-benefit-group">
           <ul>
             <li>Instant Download</li>

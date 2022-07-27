@@ -100,10 +100,10 @@ const FeaturesSplit = ({
                   Lightning fast workflow
                   </div>
                 <h3 className="mt-0 mb-12">
-                  Framed Artwork
+                  Metal Prints
                   </h3>
                 <p className="m-0">
-                    Custom wall artwork adds character to your home or office and make ideal gifts for friends and family. Transform your Sand Greeting into custom prints and personalized work of art.                  </p>
+                    Custom metal print wall artwork adds character to your home or office and make ideal gifts for friends and family. Transform your Sand Greeting into custom prints and personalized work of art.                  </p>
               </div>
               <div className={
                 classNames(
