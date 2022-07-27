@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.css": "/sandgreetings/static/css/main.6ef8b57d.css",
-    "main.js": "/sandgreetings/static/js/main.62d05833.js",
+    "main.css": "/sandgreetings/static/css/main.ff7a863a.css",
+    "main.js": "/sandgreetings/static/js/main.82ab5b39.js",
+    "static/media/card.png": "/sandgreetings/static/media/card.a3dcbcc90d5299e4f3ee.png",
+    "static/media/Accesories.png": "/sandgreetings/static/media/Accesories.98ada9d932da8563e1ac.png",
+    "static/media/framed.png": "/sandgreetings/static/media/framed.11ac990d5aec77cc4324.png",
     "static/media/Your-Message.jpg": "/sandgreetings/static/media/Your-Message.1a06d76ce69b7a3e953e.jpg",
     "static/media/scene-2.jpg": "/sandgreetings/static/media/scene-2.0e244e4833d2e54096e8.jpg",
-    "static/media/Accesories.png": "/sandgreetings/static/media/Accesories.8e583b48735fd25dd469.png",
-    "static/media/card.png": "/sandgreetings/static/media/card.fd5d11349308fa6f7187.png",
-    "static/media/framed.png": "/sandgreetings/static/media/framed.02f392f8a34f06e1560b.png",
     "static/media/illustration-section-01.svg": "/sandgreetings/static/media/illustration-section-01.980998916c8e9369ffab.svg",
     "static/media/logo.png": "/sandgreetings/static/media/logo.1e3c3bfb0b3fa5d907f9.png",
     "static/media/illustration-section-02.svg": "/sandgreetings/static/media/illustration-section-02.f11c21a9745d2454b81c.svg",
@@ -18,11 +18,11 @@
     "static/media/feature-tile-icon-04.svg": "/sandgreetings/static/media/feature-tile-icon-04.78f92ee86730e1ca3255544386a21e0a.svg",
     "static/media/feature-tile-icon-05.svg": "/sandgreetings/static/media/feature-tile-icon-05.7384a98493328cd0c741b4ff2eaf25e3.svg",
     "index.html": "/sandgreetings/index.html",
-    "main.6ef8b57d.css.map": "/sandgreetings/static/css/main.6ef8b57d.css.map",
-    "main.62d05833.js.map": "/sandgreetings/static/js/main.62d05833.js.map"
+    "main.ff7a863a.css.map": "/sandgreetings/static/css/main.ff7a863a.css.map",
+    "main.82ab5b39.js.map": "/sandgreetings/static/js/main.82ab5b39.js.map"
   },
   "entrypoints": [
-    "static/css/main.6ef8b57d.css",
-    "static/js/main.62d05833.js"
+    "static/css/main.ff7a863a.css",
+    "static/js/main.82ab5b39.js"
   ]
 }
