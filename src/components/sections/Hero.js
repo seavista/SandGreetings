@@ -157,10 +157,12 @@ const Hero = ({
             
             //cgreetings cards
             BuildMockUps(productID, currentInput, "cardImage","front");
-            
+     
              //metal prints
              BuildMockUps(productMetalPrints ,currentInput, "printsImage","default");
 
+              //delay for 60 seconds
+              // new Promise(resolve => setTimeout(resolve, 60000));
           
               //post cards
               //BuildMockUps(productsPostCards, currentInput, "postCardImage","default");

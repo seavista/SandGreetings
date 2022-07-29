@@ -217,9 +217,10 @@ const createMockUpTask = async (productId, greeting , id, placement) => {
     date.setDate(date.getDate() + 1);
     //date.setSeconds(date.getSeconds() + 30);
 
-    localStorage.setItem(greeting, JSON.stringify({
+    localStorage.setItem(greeting + "-" + id, JSON.stringify({
         expiration: date,
         url: mockups[0].mockup_url,
+        elementId: id
       }));
 
 
@@ -238,7 +239,7 @@ const createMockUpTask = async (productId, greeting , id, placement) => {
 export const BuildMockUps = async (productId, greeting, id, placement) => {
      
     //check if the greeting is in local storage
-    const greetingItem = JSON.parse(localStorage.getItem(greeting));
+    const greetingItem = JSON.parse(localStorage.getItem(greeting + "-" + id));
 
     if(greetingItem){
        
