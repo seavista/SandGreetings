@@ -21,6 +21,8 @@ import "swiper/css/navigation";
 // import required modules
 import { Pagination, Navigation } from "swiper";
 
+import {  BuildMockUps, BuildProductVariants } from '../../utils/PrintfulMockUps';
+
 
 
 
@@ -38,6 +40,7 @@ const propTypes = {
 const defaultProps = {
   ...SectionProps.defaults
 }
+
 
 
 
@@ -112,7 +115,7 @@ const Hero = ({
   };
 
 
-
+ 
 
 
   const onSubmitClickHandler = event => {
@@ -130,6 +133,8 @@ const Hero = ({
 
     let currentInput = cleanInput(document.getElementById("greeting").value);
 
+   //todo save image to localstorage for performance on re renders
+
     let greetingImage = process.env.PUBLIC_URL + `/greetings/${currentInput}.jpg`;
 
     // assign and show the image, the OnError of Image will Handle No Image Found and use the default image 
@@ -139,22 +144,43 @@ const Hero = ({
     document.getElementById("checkout").style.display = "block";
 
     //scroll into view
-    console.log(event.target.value);
+    console.log("greeting",event.target.value);
        
       
       if(document.getElementById("video-image").src != DefaultImage) {
+
           document.getElementById("video-image").scrollIntoView({ behavior: "auto" });
+            //found greeting build mockups
+            let productID = 568;
+            let productMetalPrints = 588;
+            let productsPostCards = 433;
+            
+            //cgreetings cards
+            BuildMockUps(productID, currentInput, "cardImage","front");
+            
+             //metal prints
+             BuildMockUps(productMetalPrints ,currentInput, "printsImage","default");
+
+          
+              //post cards
+              //BuildMockUps(productsPostCards, currentInput, "postCardImage","default");
+
+
         }
      
 
       document.getElementById("cta").classList.add("hidden");
       document.getElementById("greeting").blur();
 
+      
 
+      
+     
 
   };
 
 
+ 
 
 
   const onLoadEnd = event => {

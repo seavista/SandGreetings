@@ -1,9 +1,14 @@
 import React from 'react';
 import classNames from 'classnames';
 import { SectionSplitProps } from '../../utils/SectionProps';
+
+
 import SectionHeader from './partials/SectionHeader';
 import Image from '../elements/Image';
 import Button from '../elements/Button';
+
+
+import { useState } from 'react';
 
 const propTypes = {
   ...SectionSplitProps.types
@@ -12,6 +17,8 @@ const propTypes = {
 const defaultProps = {
   ...SectionSplitProps.defaults
 }
+
+
 
 const FeaturesSplit = ({
   className,
@@ -27,6 +34,9 @@ const FeaturesSplit = ({
   imageFill,
   ...props
 }) => {
+
+
+
 
   const outerClasses = classNames(
     'features-split section',
@@ -51,10 +61,11 @@ const FeaturesSplit = ({
   );
 
   const sectionHeader = {
-    title: 'Create Awesome Gifts',
-    paragraph: 'Use your Sand Greeting high quality image to create beautiful gifts that your will cherish for years to come.'
+    title: 'Sand Greetings Gifts',
+    paragraph: 'Create beautiful gifts that your will cherish for years to come.'
   };
 
+ 
   return (
     <section
       {...props}
@@ -65,9 +76,7 @@ const FeaturesSplit = ({
           <SectionHeader data={sectionHeader} className="center-content" />
 
           <div className={splitClasses}>
-
-
-
+      
             <div className="split-item">
               <div className="split-item-content center-content-mobile reveal-from-left" data-reveal-container=".split-item">
                 <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
@@ -90,6 +99,7 @@ const FeaturesSplit = ({
                 )}
                 data-reveal-container=".split-item">
                 <Image
+                id="cardImage"
                   src={require('./../../assets/images/card.png')}
                   alt="Features split 01"
                   className={"has-shadow"}
@@ -121,7 +131,8 @@ const FeaturesSplit = ({
                 )}
                 data-reveal-container=".split-item">
                 <Image
-                  src="https://printful-upload.s3-accelerate.amazonaws.com/tmp/6f1f2d4fb183b45823f0b5690d60f7f9/greeting-card-4x6-front-62e1918e4030a.png"
+                id="printsImage"
+                  src={require('./../../assets/images/Accesories.png')}
                   alt="Features split 02"
                   className={"has-shadow"}
                   width={528}
@@ -135,7 +146,7 @@ const FeaturesSplit = ({
                   Lightning fast workflow
                 </div>
                 <h3 className="mt-0 mb-12">
-                  And So Much More...
+                  Post Cards
                 </h3>
                 <p className="m-0">
                   Sand Greetings are perfect way to send a memorable message to your friends and family. Use your Sand Greeting to create a beautiful gift that will be cherished for years to come.
@@ -151,7 +162,8 @@ const FeaturesSplit = ({
                 )}
                 data-reveal-container=".split-item">
                 <Image
-                  src={require('./../../assets/images/Accesories.png')}
+                id="postCardImage"
+                  src={require('./../../assets/images/card.png')}
                   alt="Features split 03"
                   className={"has-shadow"}
                   width={528}
@@ -170,3 +182,5 @@ FeaturesSplit.propTypes = propTypes;
 FeaturesSplit.defaultProps = defaultProps;
 
 export default FeaturesSplit;
+;
+
