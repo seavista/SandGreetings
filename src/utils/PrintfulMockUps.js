@@ -11,10 +11,12 @@ window.Buffer = window.Buffer || require("buffer").Buffer;
 
 const printful = new PrintfulClient(process.env.REACT_APP_PRINTFUL_KEY, {
     method: "GET",
+    mode: "no-cors",
     headers: {
         "Content-Type": "application/json",
         "Host": "https://api.printful.com/",
-        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Origin": `${window.location.origin}`,
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
         "Accept": "application/json",
         "X-PF-Store-Id": "8524515",
         "Authorization": `Bearer ${process.env.REACT_APP_PRINTFUL_TOKEN}`
@@ -24,10 +26,12 @@ const printful = new PrintfulClient(process.env.REACT_APP_PRINTFUL_KEY, {
 
 const printfulPOST = new PrintfulClient(process.env.REACT_APP_PRINTFUL_KEY, {
     method: "POST",
+    mode: "no-cors",
     headers: {
         "Content-Type": "application/json",
         "Host": "https://api.printful.com/",
-        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Origin": `${window.location.origin}`,
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
         "Accept": "application/json",
         "X-PF-Store-Id": "8524515",
         "Authorization": `Bearer ${process.env.REACT_APP_PRINTFUL_TOKEN}`
@@ -62,7 +66,7 @@ const printfulPOST = new PrintfulClient(process.env.REACT_APP_PRINTFUL_KEY, {
         ]
 
     };
-    console.log("theBody",theBody);
+    //console.log("theBody",theBody);
     return theBody;
 
 }; //end card body
@@ -94,7 +98,7 @@ async function getMetalPrintsBody(greeting,variant_ids,placement)
         ]
 
     };
-    console.log("theBody",theBody);
+    //console.log("theBody",theBody);
     return theBody;
 
 }; //end metal prints
@@ -126,7 +130,7 @@ async function getPostCardsBody(greeting,variant_ids,placement)
         ]
 
     };
-    console.log("theBody",theBody);
+    //console.log("theBody",theBody);
     return theBody;
 
 }; //end metal prints
@@ -182,7 +186,7 @@ const createMockUpTask = async (productId, greeting , id, placement) => {
         case "printsImage":
             theBody = await getMetalPrintsBody(greeting,theVariants,placement);
             break;
-        case "postCardsImage":
+        case "postCardImage":
             theBody = await getPostCardsBody(greeting,theVariants,placement);
             break;
         default:
@@ -216,12 +220,32 @@ const createMockUpTask = async (productId, greeting , id, placement) => {
     // Add a day or seconds
     date.setDate(date.getDate() + 1);
     //date.setSeconds(date.getSeconds() + 30);
+   
 
-    localStorage.setItem(greeting + "-" + id, JSON.stringify({
-        expiration: date,
-        url: mockups[0].mockup_url,
-        elementId: id
-      }));
+    let newGreeting ={
+        "expiration": date,
+        "mockups": [{"id": id, "url": mockups[0].mockup_url}]
+    };
+    
+    //if the key exists, update the value
+    if (localStorage.getItem(greeting)) {
+        let currentGreeting = JSON.parse(localStorage.getItem(greeting));
+        //currentGreeting[id] = mockups[0].mockup_url;
+        let newMockup = [{"id": id, "url": mockups[0].mockup_url}]
+        currentGreeting.mockups.push(newMockup);
+    
+        //uodate the local storage
+        localStorage.setItem(greeting, JSON.stringify(currentGreeting));
+
+    }else{
+      
+      
+
+        //if the key does not exist, create it
+        localStorage.setItem(greeting, JSON.stringify(newGreeting));
+
+    }
+    
 
 
     console.log("mockups",mockups);
@@ -239,7 +263,7 @@ const createMockUpTask = async (productId, greeting , id, placement) => {
 export const BuildMockUps = async (productId, greeting, id, placement) => {
      
     //check if the greeting is in local storage
-    const greetingItem = JSON.parse(localStorage.getItem(greeting + "-" + id));
+    const greetingItem = JSON.parse(localStorage.getItem(greeting));
 
     if(greetingItem){
        
@@ -250,7 +274,7 @@ export const BuildMockUps = async (productId, greeting, id, placement) => {
         }
         else
         {
-            document.getElementById(id).src = greetingItem.url;
+            document.getElementById(id).src = greetingItem.mockups.url;
             return; //exit the function
         }
        

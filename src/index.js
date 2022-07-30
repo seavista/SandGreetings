@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 import { createBrowserHistory } from "history";
 
+
+
+
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
@@ -20,12 +23,14 @@ import AppSuccess from './AppSuccess';
 //const history = createBrowserHistory();
 //history={history}
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
+
 root.render( 
-<HashRouter >
+<HashRouter>
     <Routes>
-      <Route path="*" element={<App/>} LayoutDefault={<LayoutDefault />}  />
+      <Route path="*" element={<App />} LayoutDefault={<LayoutDefault />}  />
       <Route path="cancel" element={<AppCancel/> } LayoutDefault={<LayoutDefault /> } />
       <Route path="success" element={<AppSuccess/>} LayoutDefault={<LayoutDefault /> }/>
     </Routes>

@@ -21,14 +21,14 @@ import "swiper/css/navigation";
 // import required modules
 import { Pagination, Navigation } from "swiper";
 
-import {  BuildMockUps, BuildProductVariants } from '../../utils/PrintfulMockUps';
+import { BuildMockUps, BuildProductVariants } from '../../utils/PrintfulMockUps';
 
 
 
 
 //no rt clicks
 window.oncontextmenu = function () {
- return false;
+  return false;
 };
 
 
@@ -94,11 +94,11 @@ const Hero = ({
 
     //hide the download area until submit on change
     document.getElementById("checkout").style.display = "none";
-    
+
     if (event.target.value.length > 0) {
       document.getElementById("video-image").classList.add("blur");
     } else {
-      
+
       setGreetingText("");
       handleGreetingNotFound(event);
       //document.getElementById("video-image").classList.remove("blur");
@@ -115,7 +115,9 @@ const Hero = ({
   };
 
 
- 
+
+  //wait timer event
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 
   const onSubmitClickHandler = event => {
@@ -127,13 +129,13 @@ const Hero = ({
     //for the NOT Found submission form in CTA
     document.getElementById("message").value = document.getElementById("greeting").value;
 
-   
+
     //hide the not cta form
     document.getElementById("cta").classList.add("hidden");
 
     let currentInput = cleanInput(document.getElementById("greeting").value);
 
-   //todo save image to localstorage for performance on re renders
+    //todo save image to localstorage for performance on re renders
 
     let greetingImage = process.env.PUBLIC_URL + `/greetings/${currentInput}.jpg`;
 
@@ -144,49 +146,72 @@ const Hero = ({
     document.getElementById("checkout").style.display = "block";
 
     //scroll into view
-    console.log("greeting",event.target.value);
-       
-      
-      if(document.getElementById("video-image").src != DefaultImage) {
-
-          document.getElementById("video-image").scrollIntoView({ behavior: "auto" });
-            //found greeting build mockups
-            let productID = 568;
-            let productMetalPrints = 588;
-            let productsPostCards = 433;
-            
-            //cgreetings cards
-            BuildMockUps(productID, currentInput, "cardImage","front");
-     
-             //metal prints
-             BuildMockUps(productMetalPrints ,currentInput, "printsImage","default");
-
-              //delay for 60 seconds
-              // new Promise(resolve => setTimeout(resolve, 60000));
-          
-              //post cards
-              //BuildMockUps(productsPostCards, currentInput, "postCardImage","default");
+    console.log("greeting", event.target.value);
 
 
-        }
-     
+    if (document.getElementById("video-image").src != DefaultImage) {
 
-      document.getElementById("cta").classList.add("hidden");
-      document.getElementById("greeting").blur();
+      document.getElementById("video-image").scrollIntoView({ behavior: "auto" });
+      //found greeting build mockups
+      let productID = 568;
+      let productMetalPrints = 588;
+      let productsPostCards = 433;
 
-      
+      //NOTES
+      // Rate limiting: Up to 10 requests per 60 seconds for established stores; 
+      // 2 requests per 60 seconds for new stores. 
+      // Currently available rate is returned in response headers. 
+      // A 60 seconds lockout is applied if request count is exceeded.
 
-      
-     
+      //delay for 1 seconds, then build the mockups for metal prints
+      setTimeout(async function () {
+        //post cards
+        await BuildMockUps(productsPostCards, currentInput, "postCardImage", "default");
+        
+        //greetings cards
+        await BuildMockUps(productID, currentInput, "cardImage", "front");
+
+      }, 1000);
+
+      //delay for 5 seconds, then build the mockups for metal prints
+      setTimeout(async function () {
+
+      //metal prints
+      await BuildMockUps(productMetalPrints, currentInput, "printsImage", "default");
+
+
+      }, 60000);
+    
+
+
+    
+
+
+    
+
+
+
+
+
+    }
+
+
+    document.getElementById("cta").classList.add("hidden");
+    document.getElementById("greeting").blur();
+
+
+
+
+
 
   };
 
 
- 
+
 
 
   const onLoadEnd = event => {
-  
+
     document.getElementById("video-image").classList.remove("blur");
 
 
@@ -195,7 +220,7 @@ const Hero = ({
 
 
   function handleGreetingNotFound(e) {
-   e.preventDefault();
+    e.preventDefault();
 
 
     document.getElementById("cta").classList.remove("hidden");
@@ -206,7 +231,7 @@ const Hero = ({
     //hide the download area
     document.getElementById("checkout").style.display = "none";
 
-   
+
 
   }
 
@@ -248,7 +273,7 @@ const Hero = ({
               spaceBetween={10}
               slidesPerView={1}
               freeMode={false}
-              
+
               watchSlidesProgress={true}
               modules={[Pagination, Navigation]}
               className="mySwiper has-shadow"
@@ -267,12 +292,12 @@ const Hero = ({
                   width={896}
                   height={504}
                 />
-             
+
               </SwiperSlide>
               <SwiperSlide>
                 <img src={require('./../../assets/images/scene-2.jpg')} />
               </SwiperSlide>
-          
+
 
 
             </Swiper>
@@ -280,7 +305,7 @@ const Hero = ({
 
 
 
-            
+
 
             {/* <Modal
             id="video-modal"

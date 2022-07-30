@@ -12,6 +12,8 @@ import LayoutDefault from './layouts/LayoutDefault';
 import Home from './views/Home';
 import { FaThemeisle } from 'react-icons/fa';
 
+import { cors } from 'cors';
+import { applyActionCode } from 'firebase/auth';
 
 
 // Initialize Google Analytics
@@ -24,10 +26,13 @@ const trackPage = page => {
 
 
 const App = () => {
+cors = require('cors');
 
- 
+
   const childRef = useRef();
   let location = useLocation();
+
+
 
    useEffect(() => {
     const page = location.pathname;
