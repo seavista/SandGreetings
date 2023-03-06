@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/sandgreetings/static/css/main.1df212d4.css",
-    "main.js": "/sandgreetings/static/js/main.5c2775dd.js",
-    "static/media/card.png": "/sandgreetings/static/media/card.a3dcbcc90d5299e4f3ee.png",
-    "static/media/Accesories.png": "/sandgreetings/static/media/Accesories.98ada9d932da8563e1ac.png",
-    "static/media/Your-Message.jpg": "/sandgreetings/static/media/Your-Message.1a06d76ce69b7a3e953e.jpg",
-    "static/media/scene-2.jpg": "/sandgreetings/static/media/scene-2.0e244e4833d2e54096e8.jpg",
-    "static/media/illustration-section-01.svg": "/sandgreetings/static/media/illustration-section-01.980998916c8e9369ffab.svg",
-    "static/media/logo.png": "/sandgreetings/static/media/logo.1e3c3bfb0b3fa5d907f9.png",
-    "static/media/illustration-section-02.svg": "/sandgreetings/static/media/illustration-section-02.f11c21a9745d2454b81c.svg",
-    "static/media/feature-tile-icon-01.svg": "/sandgreetings/static/media/feature-tile-icon-01.1e4701326b1ac10fe9af82c7e26e9501.svg",
-    "static/media/feature-tile-icon-02.svg": "/sandgreetings/static/media/feature-tile-icon-02.2b541a12af7b3cb494491d1dc1e6500c.svg",
-    "static/media/cta-illustration.svg": "/sandgreetings/static/media/cta-illustration.79633e4594ec76a3f01f.svg",
-    "static/media/feature-tile-icon-06.svg": "/sandgreetings/static/media/feature-tile-icon-06.afbccb7b624531619831c9b2f44e5354.svg",
-    "static/media/feature-tile-icon-03.svg": "/sandgreetings/static/media/feature-tile-icon-03.be1184298e8d88cf841392c65d1928fa.svg",
-    "static/media/feature-tile-icon-04.svg": "/sandgreetings/static/media/feature-tile-icon-04.78f92ee86730e1ca3255544386a21e0a.svg",
-    "index.html": "/sandgreetings/index.html",
-    "static/media/feature-tile-icon-05.svg": "/sandgreetings/static/media/feature-tile-icon-05.7384a98493328cd0c741b4ff2eaf25e3.svg",
-    "main.1df212d4.css.map": "/sandgreetings/static/css/main.1df212d4.css.map",
-    "main.5c2775dd.js.map": "/sandgreetings/static/js/main.5c2775dd.js.map"
+    "main.css": "/static/css/main.b52eab9c.css",
+    "main.js": "/static/js/main.cb76eb98.js",
+    "static/media/card.png": "/static/media/card.a3dcbcc90d5299e4f3ee.png",
+    "static/media/Accesories.png": "/static/media/Accesories.98ada9d932da8563e1ac.png",
+    "static/media/Your-Message.jpg": "/static/media/Your-Message.1a06d76ce69b7a3e953e.jpg",
+    "static/media/scene-2.jpg": "/static/media/scene-2.0e244e4833d2e54096e8.jpg",
+    "static/media/illustration-section-01.svg": "/static/media/illustration-section-01.980998916c8e9369ffab.svg",
+    "static/media/logo.png": "/static/media/logo.1e3c3bfb0b3fa5d907f9.png",
+    "static/media/illustration-section-02.svg": "/static/media/illustration-section-02.f11c21a9745d2454b81c.svg",
+    "static/media/feature-tile-icon-01.svg": "/static/media/feature-tile-icon-01.1e4701326b1ac10fe9af82c7e26e9501.svg",
+    "static/media/feature-tile-icon-02.svg": "/static/media/feature-tile-icon-02.2b541a12af7b3cb494491d1dc1e6500c.svg",
+    "static/media/cta-illustration.svg": "/static/media/cta-illustration.79633e4594ec76a3f01f.svg",
+    "static/media/feature-tile-icon-06.svg": "/static/media/feature-tile-icon-06.afbccb7b624531619831c9b2f44e5354.svg",
+    "static/media/feature-tile-icon-03.svg": "/static/media/feature-tile-icon-03.be1184298e8d88cf841392c65d1928fa.svg",
+    "static/media/feature-tile-icon-04.svg": "/static/media/feature-tile-icon-04.78f92ee86730e1ca3255544386a21e0a.svg",
+    "index.html": "/index.html",
+    "static/media/feature-tile-icon-05.svg": "/static/media/feature-tile-icon-05.7384a98493328cd0c741b4ff2eaf25e3.svg",
+    "main.b52eab9c.css.map": "/static/css/main.b52eab9c.css.map",
+    "main.cb76eb98.js.map": "/static/js/main.cb76eb98.js.map"
   },
   "entrypoints": [
-    "static/css/main.1df212d4.css",
-    "static/js/main.5c2775dd.js"
+    "static/css/main.b52eab9c.css",
+    "static/js/main.cb76eb98.js"
   ]
 }
